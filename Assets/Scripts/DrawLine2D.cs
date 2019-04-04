@@ -17,9 +17,7 @@ namespace UnityLibrary
         [SerializeField]
         protected float lineLength_max = 30f;
         [SerializeField]
-        protected float lineLength_margin = 2f;
-        [SerializeField]
-        protected float normMaxDist = 90f;
+        protected float normMaxDist = 60f;
 
         //debug
         public Vector2 normalizedDEBUG;
@@ -101,49 +99,37 @@ namespace UnityLibrary
                         //set LineRenderer
                         m_LineRenderer.positionCount = m_Points.Count;
                         m_LineRenderer.SetPosition(m_LineRenderer.positionCount - 1, mousePosition);
+
+                        //set EdgeCollider
+                        if (m_EdgeCollider2D != null && m_AddCollider && m_Points.Count > 1)
+                        {
+                            m_EdgeCollider2D.points = m_Points.ToArray();
+                        }
                     }
                     else
                     {
-                        int loopBreak = 0;
-                        //reduce till short enough
+                        
+                        //ToDo: check m_points length 
+                        Vector2 dir = m_Points[m_Points.Count - 1] - m_Points[m_Points.Count - 2];
+                        float dist = Mathf.Clamp(Vector2.Distance(m_Points[m_Points.Count - 2], m_Points[m_Points.Count - 1]), 0, normMaxDist);
+                        Vector2 mousePositionNorm = m_Points[m_Points.Count - 2] + (dir.normalized * dist);
 
+                        //replace new position
+                        m_Points[m_Points.Count - 1] = mousePositionNorm;
 
-                        //while((lineLength[0] > lineLength_max * lineLength_margin) && loopBreak <1000)
-                        //{
-                            //normalize new Position
-                            //ToDo: check m_points length 
-                            Vector2 dir = m_Points[m_Points.Count - 1] - m_Points[m_Points.Count - 2];
-                            //float dist = lineLength_max;
-                            //Thing I don't understand
-                            float dist = Mathf.Clamp(Vector2.Distance(m_Points[m_Points.Count - 2], m_Points[m_Points.Count - 1]), 0, normMaxDist);
-                            Vector2 mousePositionNorm = m_Points[m_Points.Count - 2] + (dir.normalized * dist);
-
-                            //replace new position
-                            m_Points[m_Points.Count - 1] = mousePositionNorm;
-
-                            //set new linelength
-                            //lineLength[0] = lineLength[1] + Vector2.Distance(m_Points[m_Points.Count - 2], m_Points[m_Points.Count - 1]);
-
-                            loopBreak++;
-
-                            Debug.Log("new norm length" + lineLength[0].ToString("0.00"));
-                        //}
-                        loopBreak = 0;
                         //set LineRenderer
                         m_LineRenderer.positionCount = m_Points.Count;
                         m_LineRenderer.SetPosition(m_LineRenderer.positionCount - 1, mousePositionNorm);
+
+                        //set EdgeCollider
+                        if (m_EdgeCollider2D != null && m_AddCollider && m_Points.Count > 1)
+                        {
+                            m_EdgeCollider2D.points = m_Points.ToArray();
+                        }
                     }   
                 }
 
-                //set EdgeCollider
-                if (m_EdgeCollider2D != null && m_AddCollider && m_Points.Count > 1)
-                {
-                    //Fix This!
-                    if (lineLength[0] <= lineLength_max * lineLength_margin)
-                    {
-                        m_EdgeCollider2D.points = m_Points.ToArray();
-                    }  
-                }
+                
 
                     
             }
