@@ -40,7 +40,7 @@
     nice to have:
     (monthly) challenges with highscore (currency to personalize your name/banner in list) kinda like slay the spire
 
-
+    level editor :O
 
 
     credits:

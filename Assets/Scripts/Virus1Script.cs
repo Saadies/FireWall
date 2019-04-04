@@ -5,6 +5,7 @@ using UnityEngine;
 public class Virus1Script : MonoBehaviour {
 	public float radius;
 	public float speed;
+    public float spawnBorder = 0.1f;
     protected float startX;
     protected float screenHeight;
     
@@ -14,8 +15,9 @@ public class Virus1Script : MonoBehaviour {
         Camera cam = Camera.main;
         screenHeight = 2f * cam.orthographicSize;
         float width = screenHeight * cam.aspect;
+        float Border = width * spawnBorder;
 
-        float randomX = Random.Range(-width / 2, width / 2);
+        float randomX = Random.Range((-width + Border) / 2, (width - Border) / 2);
         startX = randomX;
 
         float startY = screenHeight;
