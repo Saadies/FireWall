@@ -1,23 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using TMPro;
 
 public class EnemySpawnerScript : MonoBehaviour {
 	public GameObject Virus1;
-	public float spawnrate = 100f;
-    public float spawnrate_max = 20; 
+	public float spawnrate;
+    public float spawnrate_max; 
     public bool getFaster = true;
 	float counter = 0;
 
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI difficultyText;
     private int score = 0;
+    public float difficulty = 0f;
 
     private float startTime;
+
+    private static float init_spawnrate;
 
     public void increaseScore(int add)
     {
         score += add;
+    }
+
+    public void calculateDifficulty()
+    {
+        difficulty = 1 + init_spawnrate/10 - (spawnrate/10);
     }
 
     void displayScore()
@@ -25,10 +33,16 @@ public class EnemySpawnerScript : MonoBehaviour {
         scoreText.SetText("Score: " + score);
     }
 
+    void displayDifficulty()
+    {
+        difficultyText.SetText("Difficulty: " + difficulty.ToString("0.0"));
+    }
+
 	// Use this for initialization
 	void Start () {
         startTime = Time.time;
-	}
+        init_spawnrate = spawnrate;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -38,6 +52,9 @@ public class EnemySpawnerScript : MonoBehaviour {
         float t = Time.time - startTime;
 
         displayScore();
+
+        calculateDifficulty();
+        displayDifficulty();
 
         switch (t)
         {
