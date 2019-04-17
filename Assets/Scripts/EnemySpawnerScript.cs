@@ -4,7 +4,8 @@ using TMPro;
 
 public class EnemySpawnerScript : MonoBehaviour {
 	public GameObject Virus1;
-	public float spawnrate;
+    public GameObject DecreaseScore;
+    public float spawnrate;
     public float spawnrate_max; 
     public bool getFaster = true;
 	float counter = 0;
@@ -21,6 +22,12 @@ public class EnemySpawnerScript : MonoBehaviour {
     public void increaseScore(int add)
     {
         score += add;
+    }
+
+    public void decreaseScore(int remove)
+    {
+        score -= 1000;
+        Instantiate(DecreaseScore,GameObject.FindGameObjectWithTag("Canvas").transform);
     }
 
     public void calculateDifficulty()

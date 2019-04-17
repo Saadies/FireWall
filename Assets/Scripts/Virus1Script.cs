@@ -15,15 +15,15 @@ public class Virus1Script : MonoBehaviour {
         Camera cam = Camera.main;
         screenHeight = 2f * cam.orthographicSize;
         float width = screenHeight * cam.aspect;
-        float Border = width * spawnBorder;
+        //spawnBorder in percent , ie 0.9 -> 90% of screen swidth
 
-        float randomX = Random.Range((-width + Border) / 2, (width - Border) / 2);
+        float randomX = Random.Range((-width * spawnBorder) / 2, (width * spawnBorder) / 2);
         startX = randomX;
 
         float startY = screenHeight;
 		Vector2 randomPos = new Vector2 (randomX, screenHeight);
 		this.transform.position = randomPos;
-		target = GameObject.Find ("Player");
+		//target = GameObject.Find ("Player");
 
         Object.Destroy(gameObject, 5f);
 	}

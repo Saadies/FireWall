@@ -1,5 +1,8 @@
 ﻿/*
     Ideas:
+    call it firewall XP and make the endboss an XP smiley.
+    maybe later you can develope more AI enbosses build on emojis (dlc)
+
     3D Animated eyes as evolving character (sleeping till boss 1)
     fire!wall as hitbox
     difference enemies by glowing weakpoint
@@ -14,6 +17,10 @@
     bomb pickups, gesture? two taps? glowing dot with ring around that disappears after first tap
 
     enemies have to be simple. semi-rare flavor text when killing an enemy?
+
+    ATTACK PATTERNS: (Crafted in story, challenge will have seeds and random sections)
+        - chross and arced cross worms of enemies that have a point where all meet
+
 
     only the awoken may challenge themselves
     bosses:
