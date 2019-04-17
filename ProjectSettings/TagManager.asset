@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactive
   - enemy
+  - Canvas
   layers:
   - Default
   - TransparentFX
