@@ -20,6 +20,7 @@
 
     ATTACK PATTERNS: (Crafted in story, challenge will have seeds and random sections)
         - chross and arced cross worms of enemies that have a point where all meet
+        - enemy that bounces
 
 
     only the awoken may challenge themselves
