@@ -29,6 +29,7 @@
         circles for bombs /other color
         glowing weakpoints
         bosses have non-random attack patterns
+        bosses can defend with walls sometimes
         3 bosses + endboss? (collect 3 artifactes -> defeat evil)
             hard bosses , ads before boss and every 3 deaths
             1: Spamboss/Scammer 2: facebook (data collector) 3: NSA (censoring) freedomtaker | boss: black hat AI (you are white hat AI)
