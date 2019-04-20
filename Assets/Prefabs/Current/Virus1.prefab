@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7676485207054100031}
   - component: {fileID: 6753210151864272412}
   - component: {fileID: 1326427418133234559}
+  - component: {fileID: 5438776503354954018}
   m_Layer: 0
   m_Name: Virus1
   m_TagString: enemy
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795019010892140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.445516, y: 15.781813, z: -2.0625}
+  m_LocalPosition: {x: -130, y: -386, z: -2.0625}
   m_LocalScale: {x: 50, y: 50, z: 25}
   m_Children: []
   m_Father: {fileID: 0}
@@ -134,3 +135,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!111 &5438776503354954018
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795019010892140}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c4432196cc448f34db3be89614b7c024, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c4432196cc448f34db3be89614b7c024, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

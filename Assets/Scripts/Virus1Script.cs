@@ -30,9 +30,13 @@ public class Virus1Script : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float step = speed * Time.deltaTime;
 
-		this.transform.position = Vector2.MoveTowards (this.transform.position, new Vector2(startX,-screenHeight), step);
+
+
+        //Replaced by animator
+		//float step = speed * Time.deltaTime;
+
+		//this.transform.position = Vector2.MoveTowards (this.transform.position, new Vector2(startX,-screenHeight), step);
 	}
 }
 
