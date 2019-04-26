@@ -35,6 +35,7 @@ public class EnemySpawnerScript : MonoBehaviour {
     protected float startX;
     protected float screenHeight;
 
+    [SerializeField]
     protected Camera cam;
 
     private float startTime;
@@ -48,12 +49,13 @@ public class EnemySpawnerScript : MonoBehaviour {
         startTime = Time.time;
         init_spawnrate = spawnrate;
 
-        cam = Camera.main;
         screenHeight = 2f * cam.orthographicSize;
         float width = screenHeight * cam.aspect;
         spawnBorder = spawnBorder * (width / 2);
 
         setAwake(0);
+
+
     }
 	
 	// Update is called once per frame
