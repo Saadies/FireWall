@@ -19,6 +19,10 @@ namespace UnityLibrary
         [SerializeField]
         protected float normMaxDist = 60f;
 
+        [SerializeField]
+        private float startY;
+        public GameObject player;
+
         //debug
         public Vector2 normalizedDEBUG;
 
@@ -67,6 +71,8 @@ namespace UnityLibrary
                 CreateDefaultEdgeCollider2D();
             }
             m_Points = new List<Vector2>();
+
+            startY = player.transform.position.y;
         }
 
         protected virtual void Update()
@@ -79,8 +85,19 @@ namespace UnityLibrary
                 switch (touch.phase)
                 {
                     case TouchPhase.Began:
+
                         Reset();
-                        getPosition(true);
+
+                        Vector2 thisPos;
+                        thisPos = touch.position;
+                        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(thisPos);
+
+                        if(startY < mousePosition.y)
+                        {
+                            getPosition(true);
+                        }
+                        
+
                         break;
                     case TouchPhase.Moved:
                         getPosition(true);
@@ -98,7 +115,14 @@ namespace UnityLibrary
             }
             if (Input.GetMouseButton(0))
             {
-                getPosition(false);
+                Vector2 thisPos;
+                thisPos = Input.mousePosition;
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(thisPos);
+
+                if (startY-50 < mousePosition.y)
+                {
+                    getPosition(false);
+                }
             }
         }
 
@@ -151,8 +175,11 @@ namespace UnityLibrary
                 {
                     thisPos = Input.mousePosition;
                 }
+                
 
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(thisPos);
+
+
                 if (!m_Points.Contains(mousePosition))
                 {
                     //save old lineLength
