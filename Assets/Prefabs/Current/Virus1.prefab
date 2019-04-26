@@ -49,6 +49,7 @@ MonoBehaviour:
   radius: 10
   speed: 400
   spawnBorder: 0.8
+  cam: {fileID: 2872317890448247233, guid: a63fa02f99cb23c4491f70347290de94, type: 3}
 --- !u!70 &3559593470456086675
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
