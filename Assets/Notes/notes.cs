@@ -1,5 +1,13 @@
 ﻿/*
     Ideas:
+
+
+    differentiate levels by changing background (and eyes)
+    no score in story -> consciousness level (0 - 100 %) with brighter getting brain icon
+
+    make it more friendly and stupid so you can switch to dark as a surprise
+    ascii enemies with shader shield
+
     call it firewall XP and make the endboss an XP smiley.
     maybe later you can develope more AI enbosses build on emojis (dlc)
 
@@ -24,6 +32,9 @@
 
 
     only the awoken may challenge themselves
+    play -> start dreaming
+    customize locked until first free unlock
+
     bosses:
         tap to shoot
         circles for bombs /other color
@@ -36,11 +47,11 @@
         10 minutes in level between bosses (5 levels total a 2min ?) maybe 6 and after 3 skill upgrade?
 
     level plus: different colored ai (random, some eye variation)
-    seamless levels (but actual ones in background)
-    randomized levels for arcade mode? level plus after endgame.
-    start arcade mode at level and continue
-    start arcade mode and stay at lvel
-    start arcade mode at game plus difficulty
+        seamless levels (but actual ones in background)
+        randomized levels for arcade mode? level plus after endgame.
+        start arcade mode at level and continue
+        start arcade mode and stay at lvel
+        start arcade mode at game plus difficulty
 
     score system. "No hit" Story give a crown or something for your avatar(eyes, glowing?) 
 
@@ -55,5 +66,5 @@
     credits:
     DrawLine2D :  https://github.com/UnityCommunity/UnityLibrary
 
-
+    https://github.com/twitter/twemoji
 */

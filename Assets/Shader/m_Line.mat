@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: m_Line
-  m_Shader: {fileID: -6465566751694194690, guid: c5ebc599a9a2b9a468b2931761c27dfa,
+  m_Shader: {fileID: -6465566751694194690, guid: 3f579e21ba2cbee45be37dd77f1927da,
     type: 3}
   m_ShaderKeywords: _EMISSION _RECEIVE_SHADOWS_OFF
   m_LightmapFlags: 2
@@ -33,6 +33,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_2C792A04:
+        m_Texture: {fileID: 2800000, guid: c2df83c65a0743d43908320439efc22b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_46161433:
+        m_Texture: {fileID: 2800000, guid: 20ed7099f59badb4cb4460c3994d9622, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}

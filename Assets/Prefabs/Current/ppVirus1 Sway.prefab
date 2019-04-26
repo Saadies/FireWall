@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1065967092684527668, guid: 1e8f16cfd38fb1e4381be193c2e9e56a,
         type: 3}
       propertyPath: m_Name
-      value: ppVirus1 Variant
+      value: ppVirus1 Sway
       objectReference: {fileID: 0}
     - target: {fileID: 1065967092684527671, guid: 1e8f16cfd38fb1e4381be193c2e9e56a,
         type: 3}
