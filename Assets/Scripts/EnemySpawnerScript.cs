@@ -40,7 +40,7 @@ public class EnemySpawnerScript : MonoBehaviour {
 
     private float startTime;
     [SerializeField]
-    private float skipTime;
+    private int skipTime;
 
     private static float init_spawnrate;
 
@@ -55,7 +55,7 @@ public class EnemySpawnerScript : MonoBehaviour {
 
         setAwake(0);
 
-
+        skipTime = PlayerPrefs.GetInt("skipTime", skipTime);
     }
 	
 	// Update is called once per frame
