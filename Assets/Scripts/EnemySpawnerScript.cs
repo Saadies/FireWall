@@ -8,11 +8,17 @@ public class EnemySpawnerScript : MonoBehaviour {
 	public GameObject Virus1;
     public GameObject Virus2;
     public GameObject DecreaseScore;
+
+    //Spawnrate in seconds, 2 = every 2 second
     public float spawnrate;
+
+    // - for old random spawner
     public float spawnrate_max; 
     public bool getFaster = true;
-    [SerializeField]
-    private bool rSpawner = false;
+    // - /
+
+    //[SerializeField]
+    //private bool rSpawner = false;
     [SerializeField]
     private bool spawn = false;
     [SerializeField]
@@ -44,12 +50,17 @@ public class EnemySpawnerScript : MonoBehaviour {
 
     private static float init_spawnrate;
 
-	// Use this for initialization
-	void Start () {
+    float startY;
+
+
+    // Use this for initialization
+    void Start () {
         startTime = Time.time;
         init_spawnrate = spawnrate;
 
         screenHeight = 2f * cam.orthographicSize;
+        startY = screenHeight / 2;
+
         float width = screenHeight * cam.aspect;
         spawnBorder = spawnBorder * (width / 2);
 
@@ -83,7 +94,8 @@ public class EnemySpawnerScript : MonoBehaviour {
 	}
 
 
-
+    /* 
+     * 
     bool RspawnerActive(bool active, int spawnType, int maxType, int startType = 1)
     {
         if (active == true){
@@ -97,6 +109,9 @@ public class EnemySpawnerScript : MonoBehaviour {
         return rSpawner;
     }
 
+    */
+    
+
     #region LEVEL
 
     void level1(float time)
@@ -104,101 +119,101 @@ public class EnemySpawnerScript : MonoBehaviour {
         
 
         if (spawn){
-            if (time <= 10)
+            if (time <= 4)
             {
                 spawnrate = 1f;
-                spawner(1);
+                spawner(1,speed:0.5f);
             }
-            else if (time > 10 && time < 20)
+            else if (time > 5 && time < 6)
             {
-                spawnrate = 0.95f;
-                spawner(1);
+                spawnrate = 0.2f;
+                spawner(1, x: 100, speed: 0.7f);
             }
-            else if (time > 20 && time < 30)
+            else if (time > 8 && time < 9)
             {
-                spawnrate = 0.90f;
-                spawner(1);
+                spawnrate = 0.1f;
+                spawner(1, x: -100, speed: 0.7f);
             }
-            else if (time > 30 && time < 40)
+            else if (time > 12 && time < 15)
             {
-                spawnrate = 0.85f;
-                spawner(1);
+                spawnrate = 0.65f;
+                spawner(1, speed:0.7f);
             }
-            else if (time > 40 && time < 50)
+            else if (time > 16 && time < 20)
             {
-                spawnrate = 0.80f;
-                spawner(1);
+                spawnrate = 0.5f;
+                spawner(1, speed: 0.5f);
             }
-            else if (time > 50 && time < 80)
+            else if (time > 22 && time < 25)
             {
                 spawnrate = 0.75f;
-                spawner(1);
+                spawner(1, speed: 0.8f);
             }
-            else if (time > 80 && time < 100)
+            else if (time > 26 && time < 35)
             {
                 setAwake(5);
                 spawnrate = 1f;
                 spawner(2);
             }
-            else if (time > 100 && time < 120)
+            else if (time > 36 && time < 40)
             {
-                spawnrate = 0.8f;
+                spawnrate = 0.6f;
                 spawner(2);
             }
-            else if (time > 120 && time < 130)
+            else if (time > 41 && time < 45)
             {
                 setAwake(10);
-                spawnrate = 0.9f;
+                spawnrate = 0.7f;
                 spawner(666, 3, 1);
             }
-            else if (time > 130 && time < 150)
+            else if (time > 46 && time < 50)
             {
-                spawnrate = 0.8f;
+                spawnrate = 0.6f;
                 spawner(666, 3, 1);
             }
-            else if (time > 150 && time < 170)
+            else if (time > 51 && time < 55)
             {
                 setAwake(15);
-                spawnrate = 1f;
+                spawnrate = 0.7f;
                 spawner(3);
             }
-            else if (time > 170 && time < 190)
+            else if (time > 56 && time < 60)
             {
-                spawnrate = 0.9f;
+                spawnrate = 0.6f;
                 spawner(3);
             }
-            else if (time > 190 && time < 220)
+            else if (time > 61 && time < 65)
             {
                 setAwake(20);
-                spawnrate = 0.9f;
+                spawnrate = 0.8f;
                 customSpawner(new List<int>() {1,3});
             }
-            else if (time > 220 && time < 230)
+            else if (time > 66 && time < 70)
             {
-                spawnrate = 0.8f;
+                spawnrate = 0.6f;
                 customSpawner(new List<int>() { 1, 3 });
             }
-            else if (time > 230 && time < 250)
+            else if (time > 71 && time < 75)
             {
                 setAwake(25);
-                spawnrate = 1f;
+                spawnrate = 0.6f;
                 spawner(666, 4, 1);
             }
-            else if (time > 250 && time < 270)
+            else if (time > 76 && time < 80)
             {
-                spawnrate = 0.9f;
-                spawner(666, 4, 1);
-            }
-            else if (time > 270 && time < 290)
-            {
-                spawnrate = 0.8f;
-                spawner(666, 4, 1);
-            }
-            else if (time > 290)
-            {
-                setAwake(30);
                 spawnrate = 0.7f;
                 spawner(666, 4, 1);
+            }
+            else if (time > 81 && time < 90)
+            {
+                spawnrate = 0.5f;
+                spawner(666, 4, 1);
+            }
+            else if (time > 91)
+            {
+                setAwake(30);
+                spawnrate = 0.4f;
+                spawner(666, 4, 1,speed:1.2f);
             }
         }
         
@@ -232,41 +247,68 @@ public class EnemySpawnerScript : MonoBehaviour {
         spawner(types[newRand]);
     }
 
-    void spawner(int spawnType, int maxType = 4, int startType = 1)
+    //spawntype 666 is random type
+
+    void spawner(int spawnType, int maxType = 4, int startType = 1, float speed = 1, float x = 9999)
     {
-            float randomX = UnityEngine.Random.Range(-spawnBorder, spawnBorder);
+
+        float randomX = UnityEngine.Random.Range(-spawnBorder, spawnBorder);
+        
+
+        if (x != 9999)
+        {
+            startX = x;
+        }
+        else
+        {
             startX = randomX;
+        }
 
-            float startY = screenHeight / 2;
-
-            Vector3 startPos = new Vector3(startX, startY, 0);
-            Vector3 startPos2_1 = new Vector3(startX - 15f, startY, 0);
-            Vector3 startPos2_2 = new Vector3(startX + 15f, startY, 0);
+        Vector3 startPos = new Vector3(startX, startY, 0);
+        Vector3 startPos2_1 = new Vector3(startX - 15f, startY, 0);
+        Vector3 startPos2_2 = new Vector3(startX + 15f, startY, 0);
 
 
-            System.Random spawnID = new System.Random();
+        System.Random spawnID = new System.Random();
 
-            int newSpawn = spawnID.Next(startType, maxType);
+        int newSpawn = spawnID.Next(startType, maxType);
 
-            switch (spawnType)
-            {
-                case 1:
-                    Instantiate(Virus1, startPos, new Quaternion());
-                    break;
-                case 2:
-                    Instantiate(Virus1, startPos2_1, new Quaternion());
-                    Instantiate(Virus1, startPos2_2, new Quaternion());
-                    break;
-                case 3:
-                    Instantiate(Virus2, startPos, new Quaternion());
-                    break;
-                case 666:
-                        spawner(newSpawn, maxType, startType);
-                    break;
-            }
+        GameObject spawnedEnemy;
 
-            //counter = 0;
-            increaseScore(10);
+
+        switch (spawnType)
+        {
+            case 1:
+                spawnedEnemy = Instantiate(Virus1, startPos, new Quaternion());
+                setSpeed(speed, spawnedEnemy);
+                break;
+            case 2:
+                spawnedEnemy = Instantiate(Virus1, startPos2_1, new Quaternion());
+                setSpeed(speed, spawnedEnemy);
+                spawnedEnemy = Instantiate(Virus1, startPos2_2, new Quaternion());
+                setSpeed(speed, spawnedEnemy);
+                break;
+            case 3:
+                spawnedEnemy = Instantiate(Virus2, startPos, new Quaternion());
+                setSpeed(speed, spawnedEnemy);
+
+                break;
+            case 666:
+                    spawner(newSpawn, maxType, startType);
+                break;
+        }
+
+        
+
+        //counter = 0;
+        increaseScore(10);
+    }
+
+    void setSpeed(float speed, GameObject parentObject)
+    {
+        GameObject childObj = parentObject.transform.GetChild(0).gameObject;
+
+        childObj.GetComponent<virusParent>().setSpeed(speed);
     }
 
     bool SpawnTimer()
