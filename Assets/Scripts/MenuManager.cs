@@ -14,5 +14,6 @@ public class MenuManager : MonoBehaviour
     public void Start()
     {
         PlayerPrefs.SetInt("skipTime", 0);
+        PlayerPrefs.SetInt("spawnCount", 0);
     }
 }
