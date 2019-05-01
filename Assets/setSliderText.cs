@@ -13,6 +13,7 @@ public class setSliderText : MonoBehaviour
         TextMeshProUGUI txt = gameObject.GetComponent<TextMeshProUGUI>();
         float val = slider.value;
         PlayerPrefs.SetInt("skipTime", (int)val);
+        PlayerPrefs.SetInt("spawnCount", (int)val);
         txt.SetText(val.ToString("R"));
     }
 }
