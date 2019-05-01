@@ -234,7 +234,8 @@ namespace UnityLibrary
 
                         //ToDo: check m_points length 
                         Vector2 dir = m_Points[m_Points.Count - 1] - m_Points[m_Points.Count - 2];
-                        float dist = Mathf.Clamp(Vector2.Distance(m_Points[m_Points.Count - 2], m_Points[m_Points.Count - 1]), 0, normMaxDist);
+                        // float dist = Mathf.Clamp(Vector2.Distance(m_Points[m_Points.Count - 2], m_Points[m_Points.Count - 1]), 0, normMaxDist);
+                        float dist = lineLength_max - lineLength[1];
                         Vector2 mousePositionNorm = m_Points[m_Points.Count - 2] + (dir.normalized * dist);
 
                         //replace new position
@@ -249,6 +250,8 @@ namespace UnityLibrary
                         {
                             m_EdgeCollider2D.points = m_Points.ToArray();
                         }
+
+                        //new line length
                     }
                 }
             }

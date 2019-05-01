@@ -185,9 +185,9 @@ public class EnemySpawnerScript : MonoBehaviour {
                 yield return new WaitForSeconds(2f);
                 break;
             case int spawnCount when (spawnCount > 4):
-                yield return new WaitForSeconds(0.6f);
-
-                spawner(666,speed: 0.3f);
+                yield return new WaitForSeconds(0.8f);
+                float ranSpeed = UnityEngine.Random.Range(0.5f,1.2f);
+                spawner(666,speed: ranSpeed);
                 break;
 
         }
@@ -384,7 +384,7 @@ public class EnemySpawnerScript : MonoBehaviour {
 
                 break;
             case 666:
-                    spawner(newSpawn, maxType, startType);
+                    spawner(newSpawn, maxType, startType, speed);
                 break;
         }
 
