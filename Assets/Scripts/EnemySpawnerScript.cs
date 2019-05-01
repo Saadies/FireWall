@@ -384,6 +384,7 @@ public class EnemySpawnerScript : MonoBehaviour {
 
     void setSpeed(float speed, GameObject parentObject)
     {
+	// You can check with parentObject.?tranform.? etc. and then if == null -> Fehlermeldung
         GameObject childObj = parentObject.transform.GetChild(0).gameObject;
 
         childObj.GetComponent<virusParent>().setSpeed(speed);
