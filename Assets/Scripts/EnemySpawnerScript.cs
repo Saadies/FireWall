@@ -7,6 +7,7 @@ using System.Collections;
 public class EnemySpawnerScript : MonoBehaviour {
 	public GameObject Virus1;
     public GameObject Virus2;
+    public GameObject Boss1;
     public GameObject DecreaseScore;
 
     //Spawnrate in seconds, 2 = every 2 second
@@ -122,6 +123,11 @@ public class EnemySpawnerScript : MonoBehaviour {
 
     #region LEVEL
 
+    public void startLevel1()
+    {
+        StartCoroutine(level1());
+    }
+    
     IEnumerator level1()
     {
         bool stop = false;
@@ -184,7 +190,15 @@ public class EnemySpawnerScript : MonoBehaviour {
                 spawner(1, speed: 0.5f, x: -50);
                 yield return new WaitForSeconds(2f);
                 break;
-            case int spawnCount when (spawnCount > 4):
+            case 7:
+                yield return new WaitForSeconds(2f);
+                Instantiate(Boss1);
+                stop = true;
+                break;
+            case 8:
+                yield return new WaitForSeconds(3f);
+                break;
+            case int spawnCount when (spawnCount > 8):
                 yield return new WaitForSeconds(0.8f);
                 float ranSpeed = UnityEngine.Random.Range(0.5f,1.2f);
                 spawner(666,speed: ranSpeed);

@@ -107,6 +107,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Virus1
       objectReference: {fileID: 0}
+    - target: {fileID: 6622558054449121216, guid: 352023750fe01204786384214944cfa6,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6620520030733178702, guid: 352023750fe01204786384214944cfa6,
         type: 3}
       propertyPath: m_LocalPosition.x

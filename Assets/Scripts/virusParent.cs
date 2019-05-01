@@ -12,6 +12,11 @@ public class virusParent : MonoBehaviour
         Object.Destroy(transform.parent.gameObject);
     }
 
+    private void Start()
+    {
+        setSpeed(0.5f);
+    }
+
     private void Awake()
     {
         m_Animator = GetComponent<Animator>();
