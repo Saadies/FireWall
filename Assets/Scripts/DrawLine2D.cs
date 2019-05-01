@@ -19,6 +19,9 @@ namespace UnityLibrary
         [SerializeField]
         protected float normMaxDist = 60f;
 
+        private int touchframes = 0;
+        private float shootbarrierDelay = 50f;
+
         [SerializeField]
         private float startY;
         public GameObject player;
@@ -72,7 +75,7 @@ namespace UnityLibrary
             }
             m_Points = new List<Vector2>();
 
-            startY = player.transform.position.y;
+            startY = player.transform.position.y - shootbarrierDelay;
         }
 
         protected virtual void Update()
@@ -80,29 +83,37 @@ namespace UnityLibrary
 
             if (Input.touchCount > 0)
             {
+                touchframes++;
                 Touch touch = Input.GetTouch(0);
+
+                Vector2 thisPos;
+                thisPos = touch.position;
+
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(thisPos);
 
                 switch (touch.phase)
                 {
                     case TouchPhase.Began:
 
-                        Reset();
 
-                        Vector2 thisPos;
-                        thisPos = touch.position;
-                        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(thisPos);
-
-                        if(startY < mousePosition.y)
-                        {
-                            getPosition(true);
-                        }
-                        
+                        touchframes = 0;
 
                         break;
                     case TouchPhase.Moved:
-                        getPosition(true);
+                        if (touchframes == 2)
+                        {
+                            Reset();
+                        }
+                        if (startY < mousePosition.y)
+                        {
+                            getPosition(true);
+                        }
                         break;
                     case TouchPhase.Ended:
+                        if (startY < mousePosition.y)
+                        {
+                            getPosition(true);
+                        }
                         break;
                     case TouchPhase.Canceled:
                         break;
@@ -111,23 +122,33 @@ namespace UnityLibrary
             }
             if (Input.GetMouseButtonDown(0))
             {
-                Reset();
+                touchframes++;
             }
             if (Input.GetMouseButton(0))
             {
+                touchframes++;
                 Vector2 thisPos;
                 thisPos = Input.mousePosition;
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(thisPos);
 
-                if (startY-50 < mousePosition.y)
+                if (touchframes == 2)
+                {
+                    Reset();
+                }
+                    if (startY < mousePosition.y && touchframes >= 2)
                 {
                     getPosition(false);
                 }
+            }
+            if (!Input.GetMouseButton(0))
+            {
+                touchframes = 0;
             }
         }
 
         protected virtual void Reset()
         {
+            
             if (m_LineRenderer != null)
             {
                 m_LineRenderer.positionCount = 0;

@@ -13,13 +13,16 @@ public class playermovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // are there any fingers on the screen
         if (Input.touchCount > 0)
         {
+            //get position of first finger that touched screen
             Touch touch = Input.GetTouch(0);
 
             switch (touch.phase)
             {
                 case TouchPhase.Began:
+
 
                     this.transform.position = touch.position;
 

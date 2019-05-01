@@ -10,4 +10,16 @@ public class repeatLevel : MonoBehaviour
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
+
+    public void PauseGame()
+    {
+        if(Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
+        else
+        {
+            Time.timeScale = 0;
+        }
+    }
 }

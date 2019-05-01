@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using System.Collections;
 
 public class EnemySpawnerScript : MonoBehaviour {
 	public GameObject Virus1;
@@ -50,6 +50,8 @@ public class EnemySpawnerScript : MonoBehaviour {
 
     private static float init_spawnrate;
 
+    private int spawnCount = 0 ;
+
     float startY;
 
 
@@ -67,6 +69,16 @@ public class EnemySpawnerScript : MonoBehaviour {
         setAwake(0);
 
         skipTime = PlayerPrefs.GetInt("skipTime", skipTime);
+
+        switch (level)
+        {
+            case 1:
+                StartCoroutine(level1());
+                break;
+            case 2:
+
+                break;
+        }
     }
 	
 	// Update is called once per frame
@@ -81,14 +93,7 @@ public class EnemySpawnerScript : MonoBehaviour {
         displayawake();
 
         spawn = SpawnTimer();
-        switch (level){
-            case 1:
-                level1(t);
-                break;
-            case 2:
-
-                break;
-        }
+        
         
 
 	}
@@ -114,7 +119,80 @@ public class EnemySpawnerScript : MonoBehaviour {
 
     #region LEVEL
 
-    void level1(float time)
+    IEnumerator level1()
+    {
+        switch (spawnCount)
+        {
+            case 0:
+                yield return new WaitForSeconds(1);
+
+                spawner(1, speed: 0.5f);
+                break;
+
+            case 1:
+                yield return new WaitForSeconds(2);
+                spawner(1, speed: 0.6f, x: -100);
+                yield return new WaitForSeconds(0.2f);
+                spawner(1, speed: 0.6f, x: -100);
+
+                break;
+
+            case 2:
+                yield return new WaitForSeconds(1.5f);
+                spawner(1, speed: 0.7f,x:0);
+                yield return new WaitForSeconds(0.25f);
+                spawner(1, speed: 0.7f,x:0);
+                yield return new WaitForSeconds(0.25f);
+                spawner(1, speed: 0.7f, x: 0);
+
+                break;
+            case 3:
+                yield return new WaitForSeconds(1.5f);
+                spawner(1, speed: 0.8f, x: 100);
+                yield return new WaitForSeconds(0.3f);
+                spawner(1, speed: 0.8f, x: 100);
+                yield return new WaitForSeconds(0.3f);
+                spawner(1, speed: 0.8f, x: 100);
+                yield return new WaitForSeconds(0.3f);
+                spawner(1, speed: 0.8f, x: 100);
+                break;
+            case 4:
+                yield return new WaitForSeconds(2f);
+                spawner(2, speed: 0.8f, x: 0);
+                yield return new WaitForSeconds(0.5f);
+                spawner(1, speed: 1.2f, x: 0);
+                break;
+            case 5:
+                yield return new WaitForSeconds(1f);
+                spawner(1, speed: 0.5f, x: 50);
+                yield return new WaitForSeconds(0.2f);
+                spawner(1, speed: 0.5f, x: -50);
+                yield return new WaitForSeconds(0.2f);
+                spawner(1, speed: 0.5f, x: 100);
+                yield return new WaitForSeconds(0.2f);
+                spawner(1, speed: 0.5f, x: -100);
+                break;
+            case 6:
+                yield return new WaitForSeconds(3f);
+                spawner(2, speed: 0.8f, x: 0);
+                yield return new WaitForSeconds(0.2f);
+                spawner(1, speed: 0.5f, x: 50);
+                spawner(1, speed: 0.5f, x: -50);
+                yield return new WaitForSeconds(2f);
+                break;
+            case int spawnCount when (spawnCount > 4):
+                yield return new WaitForSeconds(0.5f);
+
+                spawner(666, 4, 1, speed: 0.5f);
+                break;
+
+        }
+
+        spawnCount++;
+        yield return new WaitForSeconds(1);
+        StartCoroutine(level1());
+    }
+    void level1_old(float time)
     {
         
 

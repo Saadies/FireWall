@@ -30,7 +30,9 @@ public class Virus1Script : MonoBehaviour {
 
     void OnDestroy()
     {
+
         cameraShake.Shake();
+
         Object.Destroy(transform.parent.gameObject);
     }
 }
