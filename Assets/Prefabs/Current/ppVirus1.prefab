@@ -125,6 +125,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5486759805563527695, guid: 44477c76aaaca4147aaedd266180d745,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486759805563527695, guid: 44477c76aaaca4147aaedd266180d745,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486759805563527695, guid: 44477c76aaaca4147aaedd266180d745,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2404311361260950264, guid: 44477c76aaaca4147aaedd266180d745,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
@@ -138,7 +153,7 @@ PrefabInstance:
     - target: {fileID: 2404311361260950264, guid: 44477c76aaaca4147aaedd266180d745,
         type: 3}
       propertyPath: m_Time
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2404311361260950264, guid: 44477c76aaaca4147aaedd266180d745,
         type: 3}
@@ -239,56 +254,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outWeight
       value: 0.045576114
-      objectReference: {fileID: 0}
-    - target: {fileID: 2404311361260950264, guid: 44477c76aaaca4147aaedd266180d745,
-        type: 3}
-      propertyPath: m_DynamicOccludee
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2404311361260950264, guid: 44477c76aaaca4147aaedd266180d745,
-        type: 3}
-      propertyPath: m_MinVertexDistance
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2404311361260950264, guid: 44477c76aaaca4147aaedd266180d745,
-        type: 3}
-      propertyPath: m_Emitting
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2404311361260950264, guid: 44477c76aaaca4147aaedd266180d745,
-        type: 3}
-      propertyPath: m_Parameters.numCapVertices
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2404311361260950264, guid: 44477c76aaaca4147aaedd266180d745,
-        type: 3}
-      propertyPath: m_Parameters.numCornerVertices
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2404311361260950264, guid: 44477c76aaaca4147aaedd266180d745,
-        type: 3}
-      propertyPath: m_RenderingLayerMask
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 5486759805563527695, guid: 44477c76aaaca4147aaedd266180d745,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5486759805563527695, guid: 44477c76aaaca4147aaedd266180d745,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5486759805563527695, guid: 44477c76aaaca4147aaedd266180d745,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6907112680467486852, guid: 44477c76aaaca4147aaedd266180d745,
-        type: 3}
-      propertyPath: speed
-      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44477c76aaaca4147aaedd266180d745, type: 3}

@@ -46,12 +46,11 @@ public class EnemySpawnerScript : MonoBehaviour {
 
     private float startTime;
     [SerializeField]
-    private int skipTime = 0;
+    private int skipTime;
 
     private static float init_spawnrate;
 
-    [SerializeField]
-    private int spawnCount = 0;
+    private int spawnCount = 0 ;
 
     float startY;
 
@@ -69,9 +68,7 @@ public class EnemySpawnerScript : MonoBehaviour {
 
         setAwake(0);
 
-        //second value is default
         skipTime = PlayerPrefs.GetInt("skipTime", skipTime);
-        //spawnCount = PlayerPrefs.GetInt("spawnCount", spawnCount); ;
 
         switch (level)
         {
@@ -124,17 +121,16 @@ public class EnemySpawnerScript : MonoBehaviour {
 
     IEnumerator level1()
     {
-        bool stop = false;
         switch (spawnCount)
         {
             case 0:
-                //stop = true;
                 yield return new WaitForSeconds(1);
+
                 spawner(1, speed: 0.5f);
                 break;
 
             case 1:
-                yield return new WaitForSeconds(3);
+                yield return new WaitForSeconds(2);
                 spawner(1, speed: 0.6f, x: -100);
                 yield return new WaitForSeconds(0.2f);
                 spawner(1, speed: 0.6f, x: -100);
@@ -142,7 +138,7 @@ public class EnemySpawnerScript : MonoBehaviour {
                 break;
 
             case 2:
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSeconds(1.5f);
                 spawner(1, speed: 0.7f,x:0);
                 yield return new WaitForSeconds(0.25f);
                 spawner(1, speed: 0.7f,x:0);
@@ -151,7 +147,7 @@ public class EnemySpawnerScript : MonoBehaviour {
 
                 break;
             case 3:
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSeconds(1.5f);
                 spawner(1, speed: 0.8f, x: 100);
                 yield return new WaitForSeconds(0.3f);
                 spawner(1, speed: 0.8f, x: 100);
@@ -161,13 +157,13 @@ public class EnemySpawnerScript : MonoBehaviour {
                 spawner(1, speed: 0.8f, x: 100);
                 break;
             case 4:
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(2f);
                 spawner(2, speed: 0.8f, x: 0);
                 yield return new WaitForSeconds(0.5f);
                 spawner(1, speed: 1.2f, x: 0);
                 break;
             case 5:
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1f);
                 spawner(1, speed: 0.5f, x: 50);
                 yield return new WaitForSeconds(0.2f);
                 spawner(1, speed: 0.5f, x: -50);
@@ -185,19 +181,16 @@ public class EnemySpawnerScript : MonoBehaviour {
                 yield return new WaitForSeconds(2f);
                 break;
             case int spawnCount when (spawnCount > 4):
-                yield return new WaitForSeconds(0.6f);
+                yield return new WaitForSeconds(0.5f);
 
-                spawner(666,speed: 0.3f);
+                spawner(666, 4, 1, speed: 0.5f);
                 break;
 
         }
 
         spawnCount++;
-        //yield return new WaitForSeconds(1);
-        if (!stop)
-        {
-            StartCoroutine(level1());
-        }
+        yield return new WaitForSeconds(1);
+        StartCoroutine(level1());
     }
     void level1_old(float time)
     {
@@ -302,11 +295,6 @@ public class EnemySpawnerScript : MonoBehaviour {
             }
         }
         
-
-    }
-
-    void tutorial1()
-    {
 
     }
 
