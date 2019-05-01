@@ -72,7 +72,7 @@ public class EnemySpawnerScript : MonoBehaviour {
 
         //second value is default
         skipTime = PlayerPrefs.GetInt("skipTime", skipTime);
-        //spawnCount = PlayerPrefs.GetInt("spawnCount", spawnCount); ;
+        spawnCount = PlayerPrefs.GetInt("spawnCount", spawnCount); 
 
         switch (level)
         {
