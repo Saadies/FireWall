@@ -27,15 +27,17 @@ public class PlayerCollision : MonoBehaviour
             ESscript.decreaseScore(1000);
             
             Destroy(col.gameObject);
-            health--;
+            
 
             var emission = PaSys.emission;
             emission.rateOverTime = 10f;
 
-            if (health == 1)
+            if (health <= 1)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             }
+
+            health--;
         }
 
 
