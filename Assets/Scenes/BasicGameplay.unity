@@ -8122,7 +8122,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Virus2
       value: 
-      objectReference: {fileID: 4637773956437048018, guid: 7ed0e16fc5e79a64db3921353928b5b6,
+      objectReference: {fileID: 2133372916237164591, guid: 3e20b1b3a3081954ab6b74d4d6a299ba,
         type: 3}
     - target: {fileID: 8972534440215655839, guid: 5800f4f094059ff4592be626036ecf16,
         type: 3}
@@ -8159,6 +8159,12 @@ PrefabInstance:
       propertyPath: Boss1
       value: 
       objectReference: {fileID: 1670495210439645411, guid: 81c07dc3b1b1fa7438915fef52bd5f4c,
+        type: 3}
+    - target: {fileID: 8972534440215655839, guid: 5800f4f094059ff4592be626036ecf16,
+        type: 3}
+      propertyPath: Virus1_2
+      value: 
+      objectReference: {fileID: 4637773956437048018, guid: 7ed0e16fc5e79a64db3921353928b5b6,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5800f4f094059ff4592be626036ecf16, type: 3}

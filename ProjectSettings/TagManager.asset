@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - Canvas
   - bullet
+  - enemyWallImmune
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,7 @@ using System.Collections;
 
 public class EnemySpawnerScript : MonoBehaviour {
 	public GameObject Virus1;
+    public GameObject Virus1_2;
     public GameObject Virus2;
     public GameObject Boss1;
     public GameObject DecreaseScore;
@@ -137,6 +138,8 @@ public class EnemySpawnerScript : MonoBehaviour {
                 //stop = true;
                 yield return new WaitForSeconds(1);
                 spawner(1, speed: 0.5f);
+                //yield return new WaitForSeconds(1);
+                //spawner(4, speed: 0.5f, spawnText: "You can Shoot me btw");
                 break;
 
             case 1:
@@ -353,7 +356,7 @@ public class EnemySpawnerScript : MonoBehaviour {
 
     //spawntype 666 is random type
 
-    void spawner(int spawnType, int maxType = 4, int startType = 1, float speed = 1, float x = 9999)
+    void spawner(int spawnType, int maxType = 5, int startType = 1, float speed = 1, float x = 9999, string spawnText = "")
     {
 
         float randomX = UnityEngine.Random.Range(-spawnBorder, spawnBorder);
@@ -393,8 +396,15 @@ public class EnemySpawnerScript : MonoBehaviour {
                 setSpeed(speed, spawnedEnemy);
                 break;
             case 3:
-                spawnedEnemy = Instantiate(Virus2, startPos, new Quaternion());
+                spawnedEnemy = Instantiate(Virus1_2, startPos, new Quaternion());
                 setSpeed(speed, spawnedEnemy);
+
+                break;
+            case 4:
+                spawnedEnemy = Instantiate(Virus2, startPos, new Quaternion());
+                //setSpeed(speed, spawnedEnemy);
+                GameObject mySprite = spawnedEnemy.transform.GetChild(1).gameObject;
+                mySprite.GetComponent<s_attachText>().spawnText(spawnText);
 
                 break;
             case 666:
@@ -408,12 +418,28 @@ public class EnemySpawnerScript : MonoBehaviour {
         increaseScore(10);
     }
 
+    void setHint(GameObject go)
+    {
+        GameObject spriteObject = go.transform.GetChild(1).gameObject;
+        if (spriteObject != null)
+        {
+            if (spriteObject.GetComponent("s_attachText") != null)
+            {
+
+            }
+        }
+    }
+
     void setSpeed(float speed, GameObject parentObject)
     {
 	// You can check with parentObject.?tranform.? etc. and then if == null -> Fehlermeldung
-        GameObject childObj = parentObject.transform.GetChild(0).gameObject;
+        GameObject childObj = parentObject.transform?.GetChild(0)?.gameObject;
 
-        childObj.GetComponent<virusParent>().setSpeed(speed);
+        if(childObj != null)
+        {
+            childObj.GetComponent<virusParent>().setSpeed(speed);
+        }
+        
     }
 
     bool SpawnTimer()

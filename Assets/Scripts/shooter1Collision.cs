@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class shooter1Collision : MonoBehaviour
 {
-    public float radius;
-    public float speed;
-    public float spawnBorder = 0.8f;
-    protected float startX;
-    protected float screenHeight;
 
     private CameraShake cameraShake;
 

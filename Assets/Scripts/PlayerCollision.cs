@@ -20,7 +20,7 @@ public class PlayerCollision : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         //Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
-        if (col.gameObject.tag == "enemy")
+        if (col.gameObject.tag == "enemy" || col.gameObject.tag == "enemyWallImmune")
         {
             level = GameObject.Find("LevelManager");
             ESscript = level.GetComponent<EnemySpawnerScript>();
