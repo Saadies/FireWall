@@ -138,8 +138,8 @@ public class EnemySpawnerScript : MonoBehaviour {
                 //stop = true;
                 yield return new WaitForSeconds(1);
                 spawner(1, speed: 0.5f);
-                //yield return new WaitForSeconds(1);
-                //spawner(4, speed: 0.5f, spawnText: "You can Shoot me btw");
+                yield return new WaitForSeconds(1);
+                spawner(4, speed: 0.5f, spawnText: "You can Shoot me btw");
                 break;
 
             case 1:
@@ -157,6 +157,8 @@ public class EnemySpawnerScript : MonoBehaviour {
                 spawner(1, speed: 0.7f,x:0);
                 yield return new WaitForSeconds(0.25f);
                 spawner(1, speed: 0.7f, x: 0);
+
+                spawner(5, speed: 0.5f);
 
                 break;
             case 3:
@@ -192,6 +194,7 @@ public class EnemySpawnerScript : MonoBehaviour {
                 spawner(1, speed: 0.5f, x: 50);
                 spawner(1, speed: 0.5f, x: -50);
                 yield return new WaitForSeconds(2f);
+                spawner(5, speed: 0.5f);
                 break;
             case 7:
                 yield return new WaitForSeconds(2f);
@@ -356,7 +359,7 @@ public class EnemySpawnerScript : MonoBehaviour {
 
     //spawntype 666 is random type
 
-    void spawner(int spawnType, int maxType = 5, int startType = 1, float speed = 1, float x = 9999, string spawnText = "")
+    void spawner(int spawnType, int maxType = 6, int startType = 1, float speed = 1, float x = 9999, string spawnText = "")
     {
 
         float randomX = UnityEngine.Random.Range(-spawnBorder, spawnBorder);
@@ -402,9 +405,18 @@ public class EnemySpawnerScript : MonoBehaviour {
                 break;
             case 4:
                 spawnedEnemy = Instantiate(Virus2, startPos, new Quaternion());
-                //setSpeed(speed, spawnedEnemy);
-                GameObject mySprite = spawnedEnemy.transform.GetChild(1).gameObject;
-                mySprite.GetComponent<s_attachText>().spawnText(spawnText);
+                setSpeed(speed, spawnedEnemy);
+
+                GameObject mySprite = spawnedEnemy.transform.GetChild(0).gameObject;
+                mySprite.GetComponent<virusParent>().spawnText("You can Shoot me btw");
+
+                break;
+            case 5:
+                spawnedEnemy = Instantiate(Virus2, startPos, new Quaternion());
+                setSpeed(speed, spawnedEnemy);
+
+                //GameObject mySprite = spawnedEnemy.transform.GetChild(0).gameObject;
+                //mySprite.GetComponent<virusParent>().spawnText("You can Shoot me btw");
 
                 break;
             case 666:

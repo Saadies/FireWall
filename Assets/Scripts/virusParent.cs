@@ -5,7 +5,7 @@ using UnityEngine;
 public class virusParent : MonoBehaviour
 {
     Animator m_Animator;
-
+    private GameObject mySprite;
 
     void OnDestroy()
     {
@@ -15,11 +15,19 @@ public class virusParent : MonoBehaviour
     private void Start()
     {
         setSpeed(0.5f);
+
+        
     }
 
     private void Awake()
     {
+        mySprite = gameObject.transform.GetChild(0).gameObject;
         m_Animator = GetComponent<Animator>();
+    }
+
+    public void spawnText(string myText)
+    {
+        mySprite.GetComponent<s_attachText>().spawnText(myText);
     }
 
     public void setSpeed(float newSpeed)

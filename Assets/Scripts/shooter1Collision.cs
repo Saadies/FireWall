@@ -42,13 +42,14 @@ public class shooter1Collision : MonoBehaviour
     {
         
 
-        if (health == 1)
-        {
-            Destroy(this);
-        }
+        
         //Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
         if (col.gameObject.tag == "bullet")
         {
+            if (health == 1)
+            {
+                Destroy(this);
+            }
             health--;
             Destroy(col.gameObject);
         }

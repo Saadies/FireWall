@@ -13,7 +13,7 @@ public class s_attachToGameObject : MonoBehaviour
     public string enterText;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //Get Text Component on instantiation
         myText = gameObject.GetComponent<TextMeshProUGUI>();
@@ -24,7 +24,7 @@ public class s_attachToGameObject : MonoBehaviour
     {
 
         myText.SetText(enterText);
-        StartCoroutine(spawnText());
+        //StartCoroutine(spawnText());
     }
 
     public void setParentTransform(GameObject parent)
