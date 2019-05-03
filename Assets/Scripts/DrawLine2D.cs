@@ -29,7 +29,7 @@ namespace UnityLibrary
         protected float normMaxDist = 60f;
 
         private int touchframes = 0;
-        private float shootbarrierDelay = 50f;
+        private float shootbarrierDelay = 20f;
 
         [SerializeField]
         private float startY;
@@ -140,13 +140,13 @@ namespace UnityLibrary
                         }
                         if (startY < mousePosition.y)
                         {
-                            getPosition(true,true);
+                            getPosition(true);
                         }
                         break;
                     case TouchPhase.Ended:
                         if (startY < mousePosition.y)
                         {
-                            getPosition(true,true);
+                            getPosition(true);
                             saveLine();
                             
                         }
@@ -169,7 +169,7 @@ namespace UnityLibrary
                 {
                     //Reset();
                     disableLine();
-                    getPosition(false, true);
+                    getPosition(false);
                 }
                 
                 
@@ -183,7 +183,7 @@ namespace UnityLibrary
 
                 if (startY < mousePosition.y)
                 {
-                    getPosition(false, true);
+                    getPosition(false);
                 }
 
                 if( touchframes >=2 && lineLength[0] > 5)
@@ -216,51 +216,19 @@ namespace UnityLibrary
         {
             if (m_EdgeCollider2D != null && m_LineRenderer != null)
             {
-                mOld_LineRenderer.enabled = true;
                 Vector3[] newPos = new Vector3[m_LineRenderer.positionCount]; 
                 mOld_EdgeCollider2D.points = m_EdgeCollider2D.points;
 
                 m_LineRenderer.GetPositions(newPos);
 
+                mOld_LineRenderer.positionCount = m_LineRenderer.positionCount;
                 mOld_LineRenderer.SetPositions(newPos);
-                //mOld_EdgeCollider2D = m_EdgeCollider2D;
-                //mOld_LineRenderer = m_LineRenderer;
-                //CopyComponent<EdgeCollider2D>(m_EdgeCollider2D,mOld_EdgeCollider2D.gameObject);
-                //CopyComponent<LineRenderer>(m_LineRenderer, mOld_LineRenderer.gameObject);
 
-                //GetCopyOf<EdgeCollider2D>(mOld_EdgeCollider2D,m_EdgeCollider2D);
-                //GetCopyOf<LineRenderer>(mOld_LineRenderer, m_LineRenderer);
-                //mOld_EdgeCollider2D
-                
+                mOld_LineRenderer.enabled = true;
+                mOld_EdgeCollider2D.enabled = true;
+
             }
             
-        }
-        // https://answers.unity.com/questions/458207/copy-a-component-at-runtime.html
-        
-        T CopyComponent<T>(T original, GameObject destination) where T : Component
-        {
-            System.Type type = original.GetType();
-            var dst = destination.GetComponent(type) as T;
-            if (!dst) dst = destination.AddComponent(type) as T;
-            var fields = type.GetFields();
-            foreach (var field in fields)
-            {
-                if (field.IsStatic) continue;
-                field.SetValue(dst, field.GetValue(original));
-            }
-            var props = type.GetProperties();
-            foreach (var prop in props)
-            {
-                //if (!prop.CanWrite) continue;
-                if (prop.Name == "points" || prop.Name == "pointCount")
-                {
-                    prop.SetValue(dst, prop.GetValue(original, null), null);
-                }
-                
-            }
-            //original.material = targetComp.sharedMaterial;
-            //original.materials = targetComp.sharedMaterials;
-            return dst as T;
         }
 
         void copyColliderPoints()
@@ -344,12 +312,13 @@ namespace UnityLibrary
 			m_EdgeCollider2D.enabled = false;
 		}
 
-        protected virtual bool getPosition(bool mobile, bool setCollider)
+        protected virtual bool getPosition(bool mobile)
         {
             bool setSuccess = false;
 
             if (lineLength[0] <= lineLength_max)
             {
+                lineLength[1] = lineLength[0];
                 Vector2 thisPos;
                 if (mobile)
                 {
@@ -381,7 +350,7 @@ namespace UnityLibrary
                     if (lineLength[0] <= lineLength_max)
                     {
                         setSuccess = true;
-                        realizeLine(worldPos, setCollider);
+                        realizeLine(worldPos);
                     }
                     else
                     {
@@ -401,7 +370,7 @@ namespace UnityLibrary
                         //replace new position
                         m_Points[m_Points.Count - 1] = mousePositionNorm;
 
-                        realizeLine(mousePositionNorm, setCollider);
+                        realizeLine(mousePositionNorm);
 
                         setSuccess = true;
                         //new line length
@@ -413,21 +382,18 @@ namespace UnityLibrary
 
         }
 
-        void realizeLine(Vector2 newPos, bool setCollider)
+        void realizeLine(Vector2 newPos)
         {
             //add position to LineRenderer
             m_LineRenderer.positionCount = m_Points.Count;
             m_LineRenderer.SetPosition(m_LineRenderer.positionCount - 1, newPos);
 
             //add position to edgeCollider
-            if (m_EdgeCollider2D != null && m_Points.Count > 1)
-            {
-                if (setCollider)
-                {
-                    m_EdgeCollider2D.points = m_Points.ToArray();
-                }
+             if (m_EdgeCollider2D != null && m_Points.Count > 1)
+             {
+                 m_EdgeCollider2D.points = m_Points.ToArray();
                 
-            }
+             }
         }
     }
 }

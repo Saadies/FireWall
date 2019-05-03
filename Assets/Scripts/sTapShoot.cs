@@ -73,9 +73,9 @@ public class sTapShoot : MonoBehaviour
         spawnPos = Camera.main.ScreenToWorldPoint(mousePos);
 
         if (spawnPos.y <= startY)
-            {
-                GameObject newShot = Instantiate(shot,spawnPos, new Quaternion());
-            }
+        {
+            GameObject newShot = Instantiate(shot,spawnPos, new Quaternion());
+        }
             
 
     }
