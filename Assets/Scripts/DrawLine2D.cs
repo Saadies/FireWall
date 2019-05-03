@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 namespace UnityLibrary
 {
@@ -7,12 +9,14 @@ namespace UnityLibrary
     {
 
         [SerializeField]
-        protected LineRenderer m_LineRenderer;
+        private LineRenderer m_LineRenderer;
+        [SerializeField]
         private LineRenderer mOld_LineRenderer;
+        //[SerializeField]
+        //protected bool m_AddCollider = false;
         [SerializeField]
-        protected bool m_AddCollider = false;
+        private EdgeCollider2D m_EdgeCollider2D;
         [SerializeField]
-        protected EdgeCollider2D m_EdgeCollider2D;
         private EdgeCollider2D mOld_EdgeCollider2D;
 
 
@@ -34,6 +38,24 @@ namespace UnityLibrary
         //debug
         public Vector2 normalizedDEBUG;
 
+        
+        /*
+        public virtual bool addCollider
+        {
+            get
+            {
+                return m_AddCollider;
+            }
+        }
+        */
+        public virtual EdgeCollider2D edgeCollider2D
+        {
+            get
+            {
+                return m_EdgeCollider2D;
+            }
+        }
+
         public virtual LineRenderer lineRenderer
         {
             get
@@ -42,21 +64,22 @@ namespace UnityLibrary
             }
         }
 
-        public virtual bool addCollider
+        public virtual EdgeCollider2D old_edgeCollider2D
         {
             get
             {
-                return m_AddCollider;
+                return mOld_EdgeCollider2D;
             }
         }
 
-        public virtual EdgeCollider2D edgeCollider2D
+        public virtual LineRenderer old_lineRenderer
         {
             get
             {
-                return m_EdgeCollider2D;
+                return mOld_LineRenderer;
             }
         }
+
 
         public virtual List<Vector2> points
         {
@@ -73,7 +96,7 @@ namespace UnityLibrary
                 Debug.LogWarning("DrawLine: Line Renderer not assigned, Adding and Using default Line Renderer.");
                 CreateDefaultLineRenderer();
             }
-            if (m_EdgeCollider2D == null && m_AddCollider)
+            if (m_EdgeCollider2D == null)
             {
                 Debug.LogWarning("DrawLine: Edge Collider 2D not assigned, Adding and Using default Edge Collider 2D.");
                 CreateDefaultEdgeCollider2D();
@@ -85,16 +108,18 @@ namespace UnityLibrary
 
         protected virtual void Update()
         {
+            Vector2 thisPos;
+            Vector2 mousePosition;
 
             if (Input.touchCount > 0)
             {
                 touchframes++;
                 Touch touch = Input.GetTouch(0);
 
-                Vector2 thisPos;
+                
                 thisPos = touch.position;
 
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(thisPos);
+                mousePosition = Camera.main.ScreenToWorldPoint(thisPos);
 
                 switch (touch.phase)
                 {
@@ -123,9 +148,11 @@ namespace UnityLibrary
                         {
                             getPosition(true,true);
                             saveLine();
+                            
                         }
                         break;
                     case TouchPhase.Canceled:
+                       
                         break;
 
                 }
@@ -133,37 +160,51 @@ namespace UnityLibrary
             if (Input.GetMouseButtonDown(0))
             {
                 touchframes++;
+
+                thisPos = Input.mousePosition;
+                mousePosition = Camera.main.ScreenToWorldPoint(thisPos);
+
+                
+                if(startY <= mousePosition.y)
+                {
+                    //Reset();
+                    disableLine();
+                    getPosition(false, true);
+                }
+                
                 
             }
             if (Input.GetMouseButton(0))
             {
                 touchframes++;
-                Vector2 thisPos;
+
                 thisPos = Input.mousePosition;
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(thisPos);
+                mousePosition = Camera.main.ScreenToWorldPoint(thisPos);
 
-                if (lineLength[1] >= lineLength_max)
-                {
-                    Reset();
-                }
-
-                if (touchframes <= 10)
-                {
-					//ignore taps
-					if (lineLength[0] <= 1){
-						Reset();
-					}
-                }
-                    if (startY < mousePosition.y && touchframes >= 2)
+                if (startY < mousePosition.y)
                 {
                     getPosition(false, true);
                 }
-            }
-            if ( Input.GetMouseButtonUp(0) ){
-                if (lineLength[0] <= 10)
+
+                if( touchframes >=2 && lineLength[0] > 5)
                 {
-                    Reset();
+                    enableLine();
+                    ResetOldLine();
                 }
+
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (lineLength[0] > 5) { 
+                    saveLine();
+                    lineLength[1] = lineLength[0];
+                    
+                }
+                Reset();
+
+                //save old lineLength
+
+                //letGo = true;
             }
             if (!Input.GetMouseButton(0))
             {
@@ -175,15 +216,70 @@ namespace UnityLibrary
         {
             if (m_EdgeCollider2D != null && m_LineRenderer != null)
             {
-                mOld_EdgeCollider2D = m_EdgeCollider2D;
-                mOld_LineRenderer = m_LineRenderer;
+                mOld_LineRenderer.enabled = true;
+                Vector3[] newPos = new Vector3[m_LineRenderer.positionCount]; 
+                mOld_EdgeCollider2D.points = m_EdgeCollider2D.points;
+
+                m_LineRenderer.GetPositions(newPos);
+
+                mOld_LineRenderer.SetPositions(newPos);
+                //mOld_EdgeCollider2D = m_EdgeCollider2D;
+                //mOld_LineRenderer = m_LineRenderer;
+                //CopyComponent<EdgeCollider2D>(m_EdgeCollider2D,mOld_EdgeCollider2D.gameObject);
+                //CopyComponent<LineRenderer>(m_LineRenderer, mOld_LineRenderer.gameObject);
+
+                //GetCopyOf<EdgeCollider2D>(mOld_EdgeCollider2D,m_EdgeCollider2D);
+                //GetCopyOf<LineRenderer>(mOld_LineRenderer, m_LineRenderer);
+                //mOld_EdgeCollider2D
+                
             }
+            
+        }
+        // https://answers.unity.com/questions/458207/copy-a-component-at-runtime.html
+        
+        T CopyComponent<T>(T original, GameObject destination) where T : Component
+        {
+            System.Type type = original.GetType();
+            var dst = destination.GetComponent(type) as T;
+            if (!dst) dst = destination.AddComponent(type) as T;
+            var fields = type.GetFields();
+            foreach (var field in fields)
+            {
+                if (field.IsStatic) continue;
+                field.SetValue(dst, field.GetValue(original));
+            }
+            var props = type.GetProperties();
+            foreach (var prop in props)
+            {
+                //if (!prop.CanWrite) continue;
+                if (prop.Name == "points" || prop.Name == "pointCount")
+                {
+                    prop.SetValue(dst, prop.GetValue(original, null), null);
+                }
+                
+            }
+            //original.material = targetComp.sharedMaterial;
+            //original.materials = targetComp.sharedMaterials;
+            return dst as T;
         }
 
-        void hideOldLine()
+        void copyColliderPoints()
         {
-            mOld_LineRenderer.enabled = false;
-            mOld_EdgeCollider2D.enabled = false;
+            mOld_EdgeCollider2D.points = m_EdgeCollider2D.points;
+
+        }
+
+
+        void disableLine()
+        {
+            //m_LineRenderer.enabled = false;
+            m_EdgeCollider2D.enabled = false;
+        }
+
+        void enableLine()
+        {
+            m_LineRenderer.enabled = true;
+            m_EdgeCollider2D.enabled = true;
         }
 
         protected virtual void Reset()
@@ -199,9 +295,28 @@ namespace UnityLibrary
                 lineLength[0] = 0;
                 //lineLength[1] = 0;
             }
-            if (m_EdgeCollider2D != null && m_AddCollider)
+            if (m_EdgeCollider2D != null)
             {
-                m_EdgeCollider2D.Reset();
+                m_EdgeCollider2D.enabled = false;
+            }
+        }
+
+        protected virtual void ResetOldLine()
+        {
+
+            if (mOld_LineRenderer != null)
+            {
+                mOld_LineRenderer.positionCount = 0;
+            }
+            if (m_Points != null)
+            {
+                //only clear points in new Line
+                //m_Points.Clear();
+                lineLength[1] = 0;
+            }
+            if (mOld_EdgeCollider2D != null)
+            {
+                mOld_EdgeCollider2D.enabled = false;
             }
         }
 
@@ -232,6 +347,7 @@ namespace UnityLibrary
         protected virtual bool getPosition(bool mobile, bool setCollider)
         {
             bool setSuccess = false;
+
             if (lineLength[0] <= lineLength_max)
             {
                 Vector2 thisPos;
@@ -251,9 +367,6 @@ namespace UnityLibrary
 
                 if (!m_Points.Contains(worldPos))
                 {
-                    //save old lineLength
-                    lineLength[1] = lineLength[0];
-
 
                     //add new position
                     m_Points.Add(worldPos);
@@ -307,7 +420,7 @@ namespace UnityLibrary
             m_LineRenderer.SetPosition(m_LineRenderer.positionCount - 1, newPos);
 
             //add position to edgeCollider
-            if (m_EdgeCollider2D != null && m_AddCollider && m_Points.Count > 1)
+            if (m_EdgeCollider2D != null && m_Points.Count > 1)
             {
                 if (setCollider)
                 {
