@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class repeatLevel : MonoBehaviour
 {
+    public void Start()
+    {
+        Time.timeScale = 1;
+    }
+
     public void PlayGame()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
