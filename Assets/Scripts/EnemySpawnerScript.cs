@@ -132,6 +132,8 @@ public class EnemySpawnerScript : MonoBehaviour {
     IEnumerator level1()
     {
         bool stop = false;
+        setAwake(spawnCount);
+
         switch (spawnCount)
         {
             case 0:

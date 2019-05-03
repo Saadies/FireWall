@@ -42,7 +42,7 @@
         bosses have non-random attack patterns
         bosses can defend with walls sometimes
         3 bosses + endboss? (collect 3 artifactes -> defeat evil)
-            hard bosses , ads before boss and every 3 deaths
+            hard bosses , ads before boss and every 3 deaths (corruption value = 100% -> ads)
             1: Spamboss/Scammer 2: facebook (data collector) 3: NSA (censoring) freedomtaker | boss: black hat AI (you are white hat AI)
         10 minutes in level between bosses (5 levels total a 2min ?) maybe 6 and after 3 skill upgrade?
 
@@ -67,4 +67,16 @@
     DrawLine2D :  https://github.com/UnityCommunity/UnityLibrary
 
     https://github.com/twitter/twemoji
+	
+	
+	
+	
+	
+	
+	-----------------------
+	
+	next game ideas
+	- whack a mole but you drag back from a central point in any direction, it could bounce the opposite way back to create more fun
+	- lane based turn based (pokemon-light)"rpg" ... with wizards and elements pls
+	- mobile katamari damacy but for mobile you are a black hole, 3d but with sprites?, maybe isometric with up/down button
 */

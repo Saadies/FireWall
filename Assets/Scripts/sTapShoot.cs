@@ -34,11 +34,11 @@ public class sTapShoot : MonoBehaviour
             switch (touch.phase)
             {
                 case TouchPhase.Began:
-                    getPosition(true);
                     break;
                 case TouchPhase.Moved:
                     break;
                 case TouchPhase.Ended:
+					getPosition(true);
                     break;
                 case TouchPhase.Canceled:
                     break;
@@ -46,7 +46,7 @@ public class sTapShoot : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0))
         {
             getPosition(false);
         }

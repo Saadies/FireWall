@@ -3,20 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace UnityLibrary
 {
-    public class DrawLine2D : MonoBehaviour
+    public class sliceBug_DrawLine2D : MonoBehaviour
     {
 
         [SerializeField]
         protected LineRenderer m_LineRenderer;
-        private LineRenderer mOld_LineRenderer;
         [SerializeField]
         protected bool m_AddCollider = false;
         [SerializeField]
         protected EdgeCollider2D m_EdgeCollider2D;
-        private EdgeCollider2D mOld_EdgeCollider2D;
-
-
-
         protected List<Vector2> m_Points;
         public float[] lineLength = new float[10];
         [SerializeField]
@@ -115,14 +110,13 @@ namespace UnityLibrary
                         }
                         if (startY < mousePosition.y)
                         {
-                            getPosition(true,true);
+                            getPosition(true);
                         }
                         break;
                     case TouchPhase.Ended:
                         if (startY < mousePosition.y)
                         {
-                            getPosition(true,true);
-                            saveLine();
+                            getPosition(true);
                         }
                         break;
                     case TouchPhase.Canceled:
@@ -142,7 +136,7 @@ namespace UnityLibrary
                 thisPos = Input.mousePosition;
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(thisPos);
 
-                if (lineLength[1] >= lineLength_max)
+                if (lineLength[0] >= lineLength_max)
                 {
                     Reset();
                 }
@@ -156,7 +150,7 @@ namespace UnityLibrary
                 }
                     if (startY < mousePosition.y && touchframes >= 2)
                 {
-                    getPosition(false, true);
+                    getPosition(false);
                 }
             }
             if ( Input.GetMouseButtonUp(0) ){
@@ -171,21 +165,6 @@ namespace UnityLibrary
             }
         }
 
-        void saveLine()
-        {
-            if (m_EdgeCollider2D != null && m_LineRenderer != null)
-            {
-                mOld_EdgeCollider2D = m_EdgeCollider2D;
-                mOld_LineRenderer = m_LineRenderer;
-            }
-        }
-
-        void hideOldLine()
-        {
-            mOld_LineRenderer.enabled = false;
-            mOld_EdgeCollider2D.enabled = false;
-        }
-
         protected virtual void Reset()
         {
             
@@ -197,7 +176,7 @@ namespace UnityLibrary
             {
                 m_Points.Clear();
                 lineLength[0] = 0;
-                //lineLength[1] = 0;
+                lineLength[1] = 0;
             }
             if (m_EdgeCollider2D != null && m_AddCollider)
             {
@@ -229,9 +208,8 @@ namespace UnityLibrary
 			m_EdgeCollider2D.enabled = false;
 		}
 
-        protected virtual bool getPosition(bool mobile, bool setCollider)
+        protected virtual void getPosition(bool mobile)
         {
-            bool setSuccess = false;
             if (lineLength[0] <= lineLength_max)
             {
                 Vector2 thisPos;
@@ -246,17 +224,17 @@ namespace UnityLibrary
                 }
                 
 
-                Vector2 worldPos = Camera.main.ScreenToWorldPoint(thisPos);
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(thisPos);
 
 
-                if (!m_Points.Contains(worldPos))
+                if (!m_Points.Contains(mousePosition))
                 {
                     //save old lineLength
                     lineLength[1] = lineLength[0];
 
 
                     //add new position
-                    m_Points.Add(worldPos);
+                    m_Points.Add(mousePosition);
 
                     //get linelength
                     if (m_Points.Count > 1)
@@ -267,8 +245,15 @@ namespace UnityLibrary
                     //check if length ok
                     if (lineLength[0] <= lineLength_max)
                     {
-                        setSuccess = true;
-                        realizeLine(worldPos, setCollider);
+                        //add position to LineRenderer
+                        m_LineRenderer.positionCount = m_Points.Count;
+                        m_LineRenderer.SetPosition(m_LineRenderer.positionCount - 1, mousePosition);
+
+                        ////add position to edgeCollider
+                        if (m_EdgeCollider2D != null && m_AddCollider && m_Points.Count > 1)
+                        {
+                            m_EdgeCollider2D.points = m_Points.ToArray();
+                        }
                     }
                     else
                     {
@@ -288,38 +273,24 @@ namespace UnityLibrary
                         //replace new position
                         m_Points[m_Points.Count - 1] = mousePositionNorm;
 
-                        realizeLine(mousePositionNorm, setCollider);
+                        //add position to LineRenderer
+                        m_LineRenderer.positionCount = m_Points.Count;
+                        m_LineRenderer.SetPosition(m_LineRenderer.positionCount - 1, mousePositionNorm);
 
-                        setSuccess = true;
+                        //add position to edgeCollider
+                        if (m_EdgeCollider2D != null && m_AddCollider && m_Points.Count > 1)
+                        {
+                            m_EdgeCollider2D.points = m_Points.ToArray();
+                        }
+
                         //new line length
                     }
                 }
             }
 
-            return setSuccess;
-
-        }
-
-        void realizeLine(Vector2 newPos, bool setCollider)
-        {
-            //add position to LineRenderer
-            m_LineRenderer.positionCount = m_Points.Count;
-            m_LineRenderer.SetPosition(m_LineRenderer.positionCount - 1, newPos);
-
-            //add position to edgeCollider
-            if (m_EdgeCollider2D != null && m_AddCollider && m_Points.Count > 1)
-            {
-                if (setCollider)
-                {
-                    m_EdgeCollider2D.points = m_Points.ToArray();
-                }
-                
-            }
         }
     }
 }
-
-
 /*
 if (Input.GetMouseButton(0) && lineLength[0] <= lineLength_max)
 //if (Input.GetTouch[0]. && lineLength[0] <= lineLength_max)
