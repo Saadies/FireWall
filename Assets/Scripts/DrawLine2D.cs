@@ -125,34 +125,50 @@ namespace UnityLibrary
                 {
                     case TouchPhase.Began:
 
-
                         touchframes = 0;
+                        if (startY <= mousePosition.y)
+                        {
+                            //Reset();
+                            disableLine();
+                            getPosition(false);
+                        }
 
                         break;
                     case TouchPhase.Moved:
-                        if (touchframes == 2)
-                        {
-							//ignore taps
-							if (lineLength[0] >= 10){
-									Reset();
-							}
-                            
-                        }
+                        touchframes++;
+
+                        thisPos = Input.mousePosition;
+                        mousePosition = Camera.main.ScreenToWorldPoint(thisPos);
+
                         if (startY < mousePosition.y)
                         {
-                            getPosition(true);
+                            getPosition(false);
                         }
+
+                        if (touchframes >= 2 && lineLength[0] > 5)
+                        {
+                            enableLine();
+                            ResetOldLine();
+                        }
+
                         break;
                     case TouchPhase.Ended:
-                        if (startY < mousePosition.y)
+                        if (lineLength[0] > 5)
                         {
-                            getPosition(true);
                             saveLine();
-                            
+                            lineLength[1] = lineLength[0];
+
                         }
+                        Reset();
                         break;
                     case TouchPhase.Canceled:
-                       
+                        if (lineLength[0] > 5)
+                        {
+                            saveLine();
+                            lineLength[1] = lineLength[0];
+
+                        }
+                        Reset();
                         break;
 
                 }
