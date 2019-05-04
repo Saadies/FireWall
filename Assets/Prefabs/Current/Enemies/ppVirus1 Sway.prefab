@@ -72,5 +72,20 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ab611114b3d8b8d448d30256ea6c70d4, type: 2}
+    - target: {fileID: 4152267519767615900, guid: 1e8f16cfd38fb1e4381be193c2e9e56a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -535.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250050706162115972, guid: 1e8f16cfd38fb1e4381be193c2e9e56a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442864085273209407, guid: 1e8f16cfd38fb1e4381be193c2e9e56a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e8f16cfd38fb1e4381be193c2e9e56a, type: 3}

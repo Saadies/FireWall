@@ -15,7 +15,7 @@ public class Virus1Script : MonoBehaviour {
     private GameObject target;
 	// Use this for initialization
 	void Start () {
-        Object.Destroy(gameObject, 5f);
+        Object.Destroy(gameObject, 10f);
 
         Camera cam = Camera.main;
 

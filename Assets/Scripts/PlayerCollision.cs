@@ -8,13 +8,16 @@ public class PlayerCollision : MonoBehaviour
     GameObject level;
     EnemySpawnerScript ESscript;
     ParticleSystem PaSys;
+    [SerializeField]
+    GameObject health1;
+    [SerializeField]
+    GameObject health2;
 
 
     private int health = 3;
 
     private void Start()
     {
-        PaSys = gameObject.GetComponent<ParticleSystem>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -27,15 +30,20 @@ public class PlayerCollision : MonoBehaviour
             ESscript.decreaseScore(1000);
             
             Destroy(col.gameObject);
-            
 
-            var emission = PaSys.emission;
-            emission.rateOverTime = 10f;
-
+            if (health == 3)
+            {
+                Destroy(health1);
+            }
+            if (health == 2)
+            {
+                Destroy(health2);
+            }
             if (health <= 1)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             }
+            
 
             health--;
         }
