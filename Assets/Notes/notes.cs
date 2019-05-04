@@ -68,6 +68,7 @@
 
     https://github.com/twitter/twemoji
 	
+    https://www.flickr.com/photos/webtreatsetc/4081217544/in/photostream/
 	
 	
 	
