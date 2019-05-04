@@ -66,8 +66,14 @@ PrefabInstance:
     - target: {fileID: 3308355571333314811, guid: 77146d2bc7ad21b4b976522cfe8158ff,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: enemyWallImmune
       objectReference: {fileID: 0}
+    - target: {fileID: 6507593386320633703, guid: 77146d2bc7ad21b4b976522cfe8158ff,
+        type: 3}
+      propertyPath: virus1
+      value: 
+      objectReference: {fileID: 7053152208732987915, guid: 8c3bb737266ddd74ab4afdd958e4810a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77146d2bc7ad21b4b976522cfe8158ff, type: 3}
 --- !u!4 &5287862338063580448 stripped

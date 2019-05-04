@@ -139,9 +139,11 @@ public class EnemySpawnerScript : MonoBehaviour {
             case 0:
                 //stop = true;
                 yield return new WaitForSeconds(1);
-                spawner(1, speed: 0.5f);
+                spawner(1, speed: 1.5f);
                 yield return new WaitForSeconds(1);
                 spawner(4, speed: 0.5f, spawnText: "You can Shoot me btw");
+                yield return new WaitForSeconds(1);
+                spawner(3, speed: 0.5f);
                 break;
 
             case 1:
@@ -392,25 +394,26 @@ public class EnemySpawnerScript : MonoBehaviour {
         {
             case 1:
                 spawnedEnemy = Instantiate(Virus1, startPos, new Quaternion());
-                setSpeed(speed, spawnedEnemy);
+                setSpeedDirect(speed, spawnedEnemy);
                 break;
             case 2:
                 spawnedEnemy = Instantiate(Virus1, startPos2_1, new Quaternion());
-                setSpeed(speed, spawnedEnemy);
+                setSpeedDirect(speed, spawnedEnemy);
                 spawnedEnemy = Instantiate(Virus1, startPos2_2, new Quaternion());
-                setSpeed(speed, spawnedEnemy);
+                setSpeedDirect(speed, spawnedEnemy);
                 break;
             case 3:
                 spawnedEnemy = Instantiate(Virus1_2, startPos, new Quaternion());
-                setSpeed(speed, spawnedEnemy);
+                setSpeedDirect(speed, spawnedEnemy);
+
 
                 break;
             case 4:
                 spawnedEnemy = Instantiate(Virus2, startPos, new Quaternion());
-                setSpeed(speed, spawnedEnemy);
+                setSpeedDirect(speed, spawnedEnemy);
 
-                GameObject mySprite = spawnedEnemy.transform.GetChild(0).gameObject;
-                mySprite.GetComponent<virusParent>().spawnText("You can Shoot me btw");
+                //GameObject mySprite = spawnedEnemy.transform.GetChild(0).gameObject;
+                //mySprite.GetComponent<virusParent>().spawnText("You can Shoot me btw");
 
                 break;
             case 5:
@@ -434,7 +437,7 @@ public class EnemySpawnerScript : MonoBehaviour {
 
     void setHint(GameObject go)
     {
-        GameObject spriteObject = go.transform.GetChild(1).gameObject;
+        GameObject spriteObject = go.transform.GetChild(0).gameObject;
         if (spriteObject != null)
         {
             if (spriteObject.GetComponent("s_attachText") != null)
@@ -451,9 +454,17 @@ public class EnemySpawnerScript : MonoBehaviour {
 
         if(childObj != null)
         {
-            childObj.GetComponent<virusParent>().setSpeed(speed);
+            //childObj.GetComponent<virusParent>().setSpeed(speed);
         }
         
+    }
+
+    void setSpeedDirect(float speed, GameObject parentObject)
+    {
+
+       //  parentObject.GetComponent("virusParentDirect").setSpeed(speed);
+        //parentObject.GetComponent<virusParentDirect>().setSpeedDirect(speed);
+         GameObject test = parentObject;
     }
 
     bool SpawnTimer()

@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class virusParent : MonoBehaviour
+public class virusParentDirect : MonoBehaviour
 {
     Animator m_Animator;
     private GameObject mySprite;
 
     void OnDestroy()
     {
-        Object.Destroy(transform.parent.gameObject);
     }
 
     private void Start()
     {
-        setSpeed(0.5f);
+        setSpeed(0.7f);
 
         
     }

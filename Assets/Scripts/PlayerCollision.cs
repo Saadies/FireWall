@@ -12,12 +12,15 @@ public class PlayerCollision : MonoBehaviour
     GameObject health1;
     [SerializeField]
     GameObject health2;
+    [SerializeField]
+    GameObject face;
 
 
     private int health = 3;
 
     private void Start()
     {
+       
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -34,10 +37,12 @@ public class PlayerCollision : MonoBehaviour
             if (health == 3)
             {
                 Destroy(health1);
+                face.GetComponent<facesScript>().surpriseLeft();
             }
             if (health == 2)
             {
                 Destroy(health2);
+                face.GetComponent<facesScript>().surpriseRight();
             }
             if (health <= 1)
             {
