@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 4429623403982600761, guid: 8c562c2ade9e8bb42b3542f454dd99e9,
         type: 3}
       propertyPath: m_Name
-      value: Virus2
+      value: shooter virus2Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1960646088595634311, guid: 8c562c2ade9e8bb42b3542f454dd99e9,
         type: 3}
@@ -66,6 +66,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960646088595634311, guid: 8c562c2ade9e8bb42b3542f454dd99e9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960646088595634311, guid: 8c562c2ade9e8bb42b3542f454dd99e9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997093810773471212, guid: 8c562c2ade9e8bb42b3542f454dd99e9,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4173933751055592703, guid: 8c562c2ade9e8bb42b3542f454dd99e9, type: 3}

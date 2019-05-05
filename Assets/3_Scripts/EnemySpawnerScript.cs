@@ -64,6 +64,8 @@ public class EnemySpawnerScript : MonoBehaviour {
     public float speedMod = 1;
     public float spawnMod = 1;
 
+    private int awakeProg;
+
 
     // Use this for initialization
     void Start () {
@@ -80,7 +82,8 @@ public class EnemySpawnerScript : MonoBehaviour {
 
         //second value is default
         skipTime = PlayerPrefs.GetInt("skipTime", skipTime);
-        spawnCount = PlayerPrefs.GetInt("spawnCount", spawnCount); 
+        spawnCount = PlayerPrefs.GetInt("spawnCount", spawnCount);
+        PlayerPrefs.SetInt("endgame",0);
 
         switch (level)
         {
@@ -135,7 +138,12 @@ public class EnemySpawnerScript : MonoBehaviour {
     {
         StartCoroutine(level1());
     }
-    
+
+    public void startRandom1()
+    {
+        StartCoroutine(randomLevel1());
+    }
+
     IEnumerator level1()
     {
         stop = false;
@@ -164,116 +172,96 @@ public class EnemySpawnerScript : MonoBehaviour {
                 break;
 
             case 1:
-                tempSpeed = 0.6f;
-                spawnBehind = 0.3f;
 
                 yield return new WaitForSeconds(3);
-                spawner(1, speed: tempSpeed, x: -200);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1, speed: tempSpeed, x: -200);
 
-                yield return new WaitForSeconds(1f);
-                spawner(1, speed: tempSpeed, x: -100);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1, speed: tempSpeed, x: -100);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1, speed: tempSpeed, x: -100);
-
-                yield return new WaitForSeconds(1f);
-                spawner(1, speed: tempSpeed, x: 0);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1, speed: tempSpeed, x: 0);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1, speed: tempSpeed, x: 0);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1, speed: tempSpeed, x: 0);
-
-                yield return new WaitForSeconds(1f);
-                spawner(1, speed: tempSpeed, x: 100);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1, speed: tempSpeed, x: 100);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1, speed: tempSpeed, x: 100);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1, speed: tempSpeed, x: 100);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1, speed: tempSpeed, x: 100);
-
-
-                yield return new WaitForSeconds(1f);
-                spawner(1, speed: tempSpeed, x: 200);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1, speed: tempSpeed, x: 200);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1, speed: tempSpeed, x: 200);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1, speed: tempSpeed, x: 200);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1, speed: tempSpeed, x: 200);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1, speed: tempSpeed, x: 200);
-
-
+                yield return StartCoroutine(ap_v1_repeatLine(0.6f));
 
                 break;
 
             case 2:
-                yield return new WaitForSeconds(2.5f);
-                spawner(1, speed: 0.7f,x:0);
-                yield return new WaitForSeconds(0.25f);
-                spawner(1, speed: 0.7f,x:0);
-                yield return new WaitForSeconds(0.25f);
-                spawner(1, speed: 0.7f, x: 0);
+                tempSpeed = 1f;
 
-                spawner(5, speed: 0.5f);
+                yield return new WaitForSeconds(3f);
+                spawner(2, speed: tempSpeed ,x:0);
+                yield return new WaitForSeconds(1f);
+                spawner(2, speed: tempSpeed, x: -100);
+                yield return new WaitForSeconds(1f);
+                spawner(2, speed: tempSpeed, x: 100);
 
                 break;
             case 3:
-                yield return new WaitForSeconds(2.5f);
-                spawner(1, speed: 0.8f, x: 100);
-                yield return new WaitForSeconds(0.3f);
-                spawner(1, speed: 0.8f, x: 100);
-                yield return new WaitForSeconds(0.3f);
-                spawner(1, speed: 0.8f, x: 100);
-                yield return new WaitForSeconds(0.3f);
-                spawner(1, speed: 0.8f, x: 100);
+                tempSpeed = 1.25f;
+
+                yield return new WaitForSeconds(2f);
+                spawner(2, speed: tempSpeed, x: 100);
+                yield return new WaitForSeconds(1f);
+                spawner(2, speed: tempSpeed, x: 0);
+                yield return new WaitForSeconds(1f);
+                spawner(2, speed: tempSpeed, x: -100);
                 break;
             case 4:
                 yield return new WaitForSeconds(3f);
-                spawner(2, speed: 0.8f, x: 0);
-                yield return new WaitForSeconds(0.5f);
-                spawner(1, speed: 1.2f, x: 0);
+                spawner(3, speed: 0.5f, x: 0);
+
+                yield return new WaitForSeconds(1.0f);
+                spawner(3, speed: 0.75f);
+
+                yield return new WaitForSeconds(1.0f);
+                spawner(3, speed: 1.0f);
+
                 break;
             case 5:
-                yield return new WaitForSeconds(2f);
-                spawner(1, speed: 0.5f, x: 50);
-                yield return new WaitForSeconds(0.2f);
-                spawner(1, speed: 0.5f, x: -50);
-                yield return new WaitForSeconds(0.2f);
-                spawner(1, speed: 0.5f, x: 100);
-                yield return new WaitForSeconds(0.2f);
-                spawner(1, speed: 0.5f, x: -100);
+                yield return new WaitForSeconds(3f);
+                spawner(5, speed: 1f);
                 break;
             case 6:
                 yield return new WaitForSeconds(3f);
-                spawner(2, speed: 0.8f, x: 0);
-                yield return new WaitForSeconds(0.2f);
-                spawner(1, speed: 0.5f, x: 50);
-                spawner(1, speed: 0.5f, x: -50);
-                yield return new WaitForSeconds(2f);
-                spawner(4, speed: 0.5f);
+                spawner(4, speed: 1f, x: 0);
+                yield return new WaitForSeconds(1f);
+                spawner(4, speed: 1f, x: -100);
+                yield return new WaitForSeconds(1f);
+                spawner(4, speed: 1f, x: 100);
+
                 break;
             case 7:
-                yield return new WaitForSeconds(2f);
-                spawner(5, speed: 0.5f, x: -50);
+                spawnBehind = 0.6f;
+                yield return new WaitForSeconds(3f);
+                spawner(4, speed: 1f, x: 0);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(4, speed: 1f, x: 0);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(4, speed: 1f, x: 0);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(4, speed: 1f, x: 0);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(4, speed: 1f, x: 0);
                 break;
             case 8:
+                spawnBehind = 0.3f;
+                tempSpeed = 0.5f;
                 yield return new WaitForSeconds(3f);
+                yield return StartCoroutine(ap_v2_line(0.5f));
+                yield return new WaitForSeconds(6f);
                 break;
-            case int spawnCount when (spawnCount > 8):
-                yield return new WaitForSeconds(0.8f);
-                float ranSpeed = UnityEngine.Random.Range(0.5f,1.2f);
-                spawner(666,speed: ranSpeed);
+            case 9:
+                yield return StartCoroutine(ap_v2_line(0.5f));
+                yield return new WaitForSeconds(1f);
+                yield return StartCoroutine(ap_v2_line(0.5f));
+                yield return new WaitForSeconds(6f);
+                break;
+            case 10:
+                yield return StartCoroutine(ap_v2_line(0.5f));
+                yield return new WaitForSeconds(1f);
+                yield return StartCoroutine(ap_v2_line(0.5f));
+                yield return new WaitForSeconds(1f);
+                yield return StartCoroutine(ap_v2_line(0.5f));
+                yield return new WaitForSeconds(6f);
+                break;
+            case int spawnCount when (spawnCount > 9):
+                awakeProg = spawnCount;
+                PlayerPrefs.SetInt("endgame", 1);
+                yield return StartCoroutine(randomLevel1());
                 break;
 
         }
@@ -291,6 +279,111 @@ public class EnemySpawnerScript : MonoBehaviour {
         yield return null;
     }
 
+    IEnumerator randomLevel1()
+    {
+        System.Random spawnID = new System.Random();
+
+        int newSpawn = spawnID.Next(1, 12);
+        float extraTime = 0;
+
+        float newWaitBehind = normalSpeed / 3;
+
+
+        int newRepeat = spawnID.Next(1, 7);
+
+        stop = false;
+
+        switch (newSpawn)
+        {
+            case 1:
+                spawner(1, speed: normalSpeed);
+                break;
+            case 2:
+                spawner(2, speed: normalSpeed);
+                break;
+            case 3:
+                spawner(3, speed: normalSpeed);
+                break;
+            case 4:
+                spawner(4, speed: normalSpeed);
+                break;
+            case 5:
+                spawner(5, speed: normalSpeed);
+                stop = true;
+                break;
+            case 6:
+                yield return StartCoroutine(ap_v1_repeatLine(normalSpeed));
+                break;
+            case 7:
+                yield return StartCoroutine(ap_v2_line(normalSpeed));
+
+                extraTime = normalSpawn * 5;
+                break;
+            case 20:
+                yield return StartCoroutine(ap_v2_line(normalSpeed / 3));
+                yield return new WaitForSeconds(newWaitBehind);
+                yield return StartCoroutine(ap_v2_line(normalSpeed / 3));
+
+                extraTime = normalSpawn * 5;
+                break;
+            case 21:
+                yield return StartCoroutine(ap_v2_line(normalSpeed / 3));
+                yield return new WaitForSeconds(newWaitBehind);
+                yield return StartCoroutine(ap_v2_line(normalSpeed / 3));
+                yield return new WaitForSeconds(newWaitBehind);
+                yield return StartCoroutine(ap_v2_line(normalSpeed / 3));
+
+                extraTime = normalSpawn * 6;
+                break;
+            case 22:
+                yield return StartCoroutine(ap_v2_line(normalSpeed / 3));
+                yield return new WaitForSeconds(newWaitBehind);
+                yield return StartCoroutine(ap_v2_line(normalSpeed / 3));
+                yield return new WaitForSeconds(newWaitBehind);
+                yield return StartCoroutine(ap_v2_line(normalSpeed / 3));
+                yield return new WaitForSeconds(newWaitBehind);
+                yield return StartCoroutine(ap_v2_line(normalSpeed / 3));
+
+                extraTime = normalSpawn * 7;
+                break;
+            case 8:
+                yield return StartCoroutine(ap_v1_repeater(normalSpeed,newRepeat,newWaitBehind));
+                extraTime = newRepeat * newWaitBehind;
+                break;
+            case 9:
+                yield return StartCoroutine(ap_v1_1_repeater(normalSpeed, newRepeat, newWaitBehind));
+                extraTime = newRepeat * newWaitBehind;
+                break;
+            case 10:
+                yield return StartCoroutine(ap_v1_2_repeater(normalSpeed, newRepeat, newWaitBehind));
+                extraTime = newRepeat * newWaitBehind;
+                break;
+            case 11:
+                yield return StartCoroutine(ap_v2_repeater(normalSpeed, newRepeat, newWaitBehind));
+                extraTime = newRepeat * newWaitBehind;
+                break;
+
+        }
+        if (normalSpeed <= 2)
+        {
+            normalSpeed += 0.01f;
+        }
+        if (normalSpawn >= 0.5f)
+        {
+            normalSpawn -= 0.01f;
+        }
+
+        setAwake(awakeProg);
+        awakeProg++;
+        yield return new WaitForSeconds(normalSpawn+extraTime);
+        if (!stop)
+        {
+            yield return StartCoroutine(randomLevel1());
+        }
+        
+
+    }
+
     #endregion
 
 
@@ -299,9 +392,123 @@ public class EnemySpawnerScript : MonoBehaviour {
 
     #region ATTACK_PATTERNS
 
+    IEnumerator ap_v1_repeatLine(float speed)
+    {
+        float spawnBehind = speed / 2;
 
+
+        yield return new WaitForSeconds(1f);
+        spawner(1, speed: speed, x: -100);
+        yield return new WaitForSeconds(spawnBehind);
+        spawner(1, speed: speed, x: -100);
+        yield return new WaitForSeconds(spawnBehind);
+        spawner(1, speed: speed, x: -100);
+
+        yield return new WaitForSeconds(1f);
+        spawner(1, speed: speed, x: 0);
+        yield return new WaitForSeconds(spawnBehind);
+        spawner(1, speed: speed, x: 0);
+        yield return new WaitForSeconds(spawnBehind);
+        spawner(1, speed: speed, x: 0);
+        yield return new WaitForSeconds(spawnBehind);
+        spawner(1, speed: speed, x: 0);
+
+        yield return new WaitForSeconds(1f);
+        spawner(1, speed: speed, x: 100);
+        yield return new WaitForSeconds(spawnBehind);
+        spawner(1, speed: speed, x: 100);
+        yield return new WaitForSeconds(spawnBehind);
+        spawner(1, speed: speed, x: 100);
+        yield return new WaitForSeconds(spawnBehind);
+        spawner(1, speed: speed, x: 100);
+        yield return new WaitForSeconds(spawnBehind);
+        spawner(1, speed: speed, x: 100);
+
+
+    }
+
+    IEnumerator ap_v2_line(float speed)
+    {
+        spawner(4, speed: speed, x: -200);
+        spawner(4, speed: speed, x: -150);
+        spawner(4, speed: speed, x: -100);
+        spawner(4, speed: speed, x: -150);
+        spawner(4, speed: speed, x: -100);
+        spawner(4, speed: speed, x: -50);
+        spawner(4, speed: speed, x: -0);
+        spawner(4, speed: speed, x: 50);
+        spawner(4, speed: speed, x: 100);
+        spawner(4, speed: speed, x: 150);
+
+        yield return null;
+    }
+
+    IEnumerator ap_v1_repeater(float speed,int repeats, float waitBehind, float startX = 9999)
+    {
+        if (startX != 9999)
+        {
+            startX = UnityEngine.Random.Range(-spawnBorder, spawnBorder);
+        }
+
+        for(int i=1; i <= repeats; i++)
+        {
+            spawner(1, speed: speed, x: startX);
+            yield return new WaitForSeconds(waitBehind);
+            i++;
+        }
+        yield return null;
+    }
+
+    IEnumerator ap_v1_1_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
+    {
+        if (startX != 9999)
+        {
+            startX = UnityEngine.Random.Range(-spawnBorder, spawnBorder);
+        }
+
+        for (int i = 1; i <= repeats; i++)
+        {
+            spawner(2, speed: speed, x: startX);
+            yield return new WaitForSeconds(waitBehind);
+            i++;
+        }
+        yield return null;
+    }
+
+    IEnumerator ap_v1_2_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
+    {
+        if (startX != 9999)
+        {
+            startX = UnityEngine.Random.Range(-spawnBorder, spawnBorder);
+        }
+
+        for (int i = 1; i <= repeats; i++)
+        {
+            spawner(3, speed: speed, x: startX);
+            yield return new WaitForSeconds(waitBehind);
+            i++;
+        }
+        yield return null;
+    }
+
+    IEnumerator ap_v2_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
+    {
+        if (startX != 9999)
+        {
+            startX = UnityEngine.Random.Range(-spawnBorder, spawnBorder);
+        }
+
+        for (int i = 1; i <= repeats; i++)
+        {
+            spawner(4, speed: speed, x: startX);
+            yield return new WaitForSeconds(waitBehind);
+            i++;
+        }
+        yield return null;
+    }
 
     #endregion
+
 
 
 
@@ -346,6 +553,11 @@ public class EnemySpawnerScript : MonoBehaviour {
         int newSpawn = spawnID.Next(startType, maxType+1);
 
         GameObject spawnedEnemy;
+
+        if(startX > 500)
+        {
+            Debug.Log("how");
+        }
 
 
         switch (spawnType)
@@ -421,8 +633,8 @@ public class EnemySpawnerScript : MonoBehaviour {
     {
 
        //  parentObject.GetComponent("virusParentDirect").setSpeed(speed);
-        //parentObject.GetComponent<virusParentDirect>().setSpeedDirect(speed);
-         GameObject test = parentObject;
+       parentObject.GetComponent<virusParent>().setSpeed(speed);
+         //GameObject test = parentObject;
     }
 
     bool SpawnTimer()

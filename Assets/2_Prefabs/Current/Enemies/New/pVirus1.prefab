@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3485532231335287842}
   - component: {fileID: 7053152208732987914}
-  - component: {fileID: 8174818469514033146}
+  - component: {fileID: 6032552925193746869}
   m_Layer: 0
   m_Name: pVirus1
   m_TagString: Untagged
@@ -52,7 +52,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8174818469514033146
+--- !u!114 &6032552925193746869
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7053152208732987915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 093092cfbb29b7640913c4f811bda4c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 242b38b9cb8536b4593fadfdc47f7e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6215277799349386655

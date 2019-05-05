@@ -49,6 +49,15 @@ public class shooter1Script : MonoBehaviour
 
     void OnDestroy()
     {
-        ESscript.startLevel1();
+        int whatNow = PlayerPrefs.GetInt("endgame");
+        if (whatNow == 0)
+        {
+            ESscript.startLevel1();
+        }
+        else
+        {
+            ESscript.startRandom1();
+        }
+        
     }
 }
