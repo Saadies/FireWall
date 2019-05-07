@@ -71,7 +71,7 @@ public class sTapShoot : MonoBehaviour
         
         Vector3 mousePos = new Vector3(tapPos.x,tapPos.y,0);
         spawnPos = Camera.main.ScreenToWorldPoint(mousePos);
-        spawnPos.z = -100;
+        //spawnPos.y = +90;
        
         if (spawnPos.y <= startY)
         {

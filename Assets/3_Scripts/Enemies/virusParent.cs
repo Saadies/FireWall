@@ -9,16 +9,17 @@ public class virusParent : MonoBehaviour
 
     void OnDestroy()
     {
+        /*
         if (transform.parent.gameObject != null)
         {
             Object.Destroy(transform.parent.gameObject);
         }
-        
+        */
     }
 
     private void Start()
     {
-        setSpeed(0.5f);
+       // setSpeed(0.5f);
 
         
     }

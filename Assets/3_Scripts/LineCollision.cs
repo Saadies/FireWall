@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LineCollision : MonoBehaviour
 {
@@ -14,9 +15,12 @@ public class LineCollision : MonoBehaviour
         if (col.gameObject.tag == "enemy")
         {
             level = GameObject.Find("LevelManager");
-            ESscript = level.GetComponent<EnemySpawnerScript>();
-            ESscript.increaseScore(100);
 
+            if (SceneManager.GetActiveScene().name == "BasicGameplay")
+            {
+                ESscript = level.GetComponent<EnemySpawnerScript>();
+                ESscript.increaseScore(100);
+            }
             Destroy(col.gameObject);
             
         }

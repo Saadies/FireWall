@@ -281,15 +281,15 @@ public class EnemySpawnerScript : MonoBehaviour {
 
     IEnumerator randomLevel1()
     {
-        System.Random spawnID = new System.Random();
+        System.Random spawnID_lvl1 = new System.Random();
 
-        int newSpawn = spawnID.Next(1, 12);
+        int newSpawn = spawnID_lvl1.Next(1, 12);
         float extraTime = 0;
 
-        float newWaitBehind = normalSpeed / 3;
+        float newWaitBehind = normalSpeed / 4;
 
 
-        int newRepeat = spawnID.Next(1, 7);
+        int newRepeat = spawnID_lvl1.Next(4, 10);
 
         stop = false;
 
@@ -311,14 +311,17 @@ public class EnemySpawnerScript : MonoBehaviour {
                 spawner(5, speed: normalSpeed);
                 stop = true;
                 break;
+                /*
             case 6:
                 yield return StartCoroutine(ap_v1_repeatLine(normalSpeed));
                 break;
-            case 7:
+                */
+            case 6:
                 yield return StartCoroutine(ap_v2_line(normalSpeed));
 
-                extraTime = normalSpawn * 5;
+                extraTime = normalSpawn * 3;
                 break;
+                /*
             case 20:
                 yield return StartCoroutine(ap_v2_line(normalSpeed / 3));
                 yield return new WaitForSeconds(newWaitBehind);
@@ -346,33 +349,35 @@ public class EnemySpawnerScript : MonoBehaviour {
 
                 extraTime = normalSpawn * 7;
                 break;
-            case 8:
+                */
+            case 7:
                 yield return StartCoroutine(ap_v1_repeater(normalSpeed,newRepeat,newWaitBehind));
-                extraTime = newRepeat * newWaitBehind;
+                extraTime = normalSpawn * (newRepeat/2);
+                break;
+            case 8:
+                yield return StartCoroutine(ap_v1_1_repeater(normalSpeed, newRepeat, newWaitBehind));
+                extraTime = normalSpawn * (newRepeat / 2);
                 break;
             case 9:
-                yield return StartCoroutine(ap_v1_1_repeater(normalSpeed, newRepeat, newWaitBehind));
-                extraTime = newRepeat * newWaitBehind;
+                yield return StartCoroutine(ap_v1_2_repeater(normalSpeed, newRepeat, newWaitBehind));
+                extraTime = normalSpawn * (newRepeat / 2);
                 break;
             case 10:
-                yield return StartCoroutine(ap_v1_2_repeater(normalSpeed, newRepeat, newWaitBehind));
-                extraTime = newRepeat * newWaitBehind;
-                break;
-            case 11:
                 yield return StartCoroutine(ap_v2_repeater(normalSpeed, newRepeat, newWaitBehind));
-                extraTime = newRepeat * newWaitBehind;
+                extraTime = normalSpawn * (newRepeat / 2);
                 break;
 
         }
-        if (normalSpeed <= 2)
+        if (normalSpeed <= 1.5f)
         {
             normalSpeed += 0.01f;
         }
-        if (normalSpawn >= 0.5f)
+        if (normalSpawn >= 0.02f)
         {
             normalSpawn -= 0.01f;
         }
-
+        Debug.Log("Spawn:" + newSpawn + " , with repeat: " + newRepeat);
+        Debug.Log(extraTime);
         setAwake(awakeProg);
         awakeProg++;
         yield return new WaitForSeconds(normalSpawn+extraTime);
@@ -429,15 +434,14 @@ public class EnemySpawnerScript : MonoBehaviour {
 
     IEnumerator ap_v2_line(float speed)
     {
-        spawner(4, speed: speed, x: -200);
         spawner(4, speed: speed, x: -150);
-        spawner(4, speed: speed, x: -100);
-        spawner(4, speed: speed, x: -150);
-        spawner(4, speed: speed, x: -100);
-        spawner(4, speed: speed, x: -50);
-        spawner(4, speed: speed, x: -0);
-        spawner(4, speed: speed, x: 50);
-        spawner(4, speed: speed, x: 100);
+
+        spawner(4, speed: speed, x: -75);
+
+        spawner(4, speed: speed, x: 0);
+
+        spawner(4, speed: speed, x: 75);
+
         spawner(4, speed: speed, x: 150);
 
         yield return null;
@@ -456,7 +460,7 @@ public class EnemySpawnerScript : MonoBehaviour {
             yield return new WaitForSeconds(waitBehind);
             i++;
         }
-        yield return null;
+
     }
 
     IEnumerator ap_v1_1_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
@@ -470,9 +474,8 @@ public class EnemySpawnerScript : MonoBehaviour {
         {
             spawner(2, speed: speed, x: startX);
             yield return new WaitForSeconds(waitBehind);
-            i++;
         }
-        yield return null;
+
     }
 
     IEnumerator ap_v1_2_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
@@ -486,9 +489,8 @@ public class EnemySpawnerScript : MonoBehaviour {
         {
             spawner(3, speed: speed, x: startX);
             yield return new WaitForSeconds(waitBehind);
-            i++;
         }
-        yield return null;
+
     }
 
     IEnumerator ap_v2_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
@@ -502,9 +504,8 @@ public class EnemySpawnerScript : MonoBehaviour {
         {
             spawner(4, speed: speed, x: startX);
             yield return new WaitForSeconds(waitBehind);
-            i++;
         }
-        yield return null;
+
     }
 
     #endregion

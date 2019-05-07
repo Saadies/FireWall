@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LineRenderer: {fileID: 0}
-  m_AddCollider: 1
+  mOld_LineRenderer: {fileID: 0}
   m_EdgeCollider2D: {fileID: 0}
+  mOld_EdgeCollider2D: {fileID: 0}
   lineLength:
   - 0
   - 0
@@ -57,6 +58,8 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  lineLength_max: 50
+  lineLength_max: 70
   normMaxDist: 60
+  startY: 0
+  player: {fileID: 0}
   normalizedDEBUG: {x: 0, y: 0}

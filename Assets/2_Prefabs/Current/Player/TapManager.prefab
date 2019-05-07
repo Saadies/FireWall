@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 384662021334050776, guid: 7de085374d4b11f4e9cf592eca754bdb, type: 3}
+  player: {fileID: 5987885917521116968, guid: 00c755516e0c9cb419c8b5bc38890dda, type: 3}
+  startY: 0
+  tapPos: {x: 0, y: 0}
+  spawnPos: {x: 0, y: 0, z: 0}

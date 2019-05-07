@@ -43,10 +43,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 343557a37cc7276429f193a46902521a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Virus1: {fileID: 1795019010892140, guid: c5a7678f42ad2a340962836f3db0c8e3, type: 3}
-  spawnrate: 60
-  spawnrate_max: 20
-  getFaster: 1
-  scoreText: {fileID: 0}
-  difficultyText: {fileID: 0}
-  difficulty: 0
+  Virus1: {fileID: 7053152208732987915, guid: 8c3bb737266ddd74ab4afdd958e4810a, type: 3}
+  Virus1_2: {fileID: 7019538826447836756, guid: 1ccdae767fb3ee54fb983c713c7ec667,
+    type: 3}
+  Virus2: {fileID: 7188721616396892542, guid: 8db8a6063adf49c4c80cafb3270c04bb, type: 3}
+  Boss1: {fileID: 488638214347250943, guid: 000cbcf5bdb84734c864454a3a3acffb, type: 3}
+  DecreaseScore: {fileID: 2742372998029980546, guid: bd0c0c499b5d1ba499ad514eaa1c5800,
+    type: 3}
+  spawnrate: 1
+  spawnrate_max: 0
+  getFaster: 0
+  spawn: 0
+  t: 0
+  level: 1
+  awakeText: {fileID: 4050494665578092743, guid: 2cfde7333a97d3a40969e56c50f74be9,
+    type: 3}
+  awake: 0
+  spawnBorder: 0.8
+  cam: {fileID: 2872317890448247233, guid: a63fa02f99cb23c4491f70347290de94, type: 3}
+  skipTime: 0
+  spawnCount: 0
+  stop: 0
+  normalSpeed: 1
+  normalSpawn: 1
+  speedMod: 1
+  spawnMod: 1

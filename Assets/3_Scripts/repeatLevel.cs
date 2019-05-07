@@ -13,7 +13,7 @@ public class repeatLevel : MonoBehaviour
     public void PlayGame()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene("StarMenu");
     }
 
     public void PauseGame()

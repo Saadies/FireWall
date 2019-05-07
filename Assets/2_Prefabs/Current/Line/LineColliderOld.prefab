@@ -10,7 +10,22 @@ PrefabInstance:
     - target: {fileID: 4458974389970507100, guid: 8734d4df91eda2246a5489c3d8516e5d,
         type: 3}
       propertyPath: m_Name
-      value: LineCollider
+      value: LineColliderOld
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069200579569620951, guid: 8734d4df91eda2246a5489c3d8516e5d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069200579569620951, guid: 8734d4df91eda2246a5489c3d8516e5d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069200579569620951, guid: 8734d4df91eda2246a5489c3d8516e5d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1069200579569620951, guid: 8734d4df91eda2246a5489c3d8516e5d,
         type: 3}

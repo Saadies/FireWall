@@ -55,6 +55,8 @@
 
     score system. "No hit" Story give a crown or something for your avatar(eyes, glowing?) 
 
+	fun levels between normals one where you get a huge amount of enemies but loose no life
+	
     "profile" button for customization "hello profile"
 
     nice to have:
