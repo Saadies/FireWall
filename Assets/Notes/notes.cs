@@ -11,6 +11,10 @@
     call it firewall XP and make the endboss an XP smiley.
     maybe later you can develope more AI enbosses build on emojis (dlc)
 
+    rats:
+    standing rats jump once over fire then walk
+
+
     3D Animated eyes as evolving character (sleeping till boss 1)
     fire!wall as hitbox
     difference enemies by glowing weakpoint

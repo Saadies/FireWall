@@ -86,110 +86,78 @@ IEnumerator level1()
             case 0:
                 // yield return StartCoroutine (tutorial) 
                 //stop = true;
+                
                 yield return new WaitForSeconds(1.5f);
                 spawner(1, speed: 0.6f, x: 0);
                 yield return new WaitForSeconds(5f);
                 spawner(1, speed: 0.6f);
                 yield return new WaitForSeconds(5.0f);
                 spawner(1, speed: 0.6f);
-                yield return new WaitForSeconds(3.0f);
+                yield return new WaitForSeconds(4.5f);
                 spawner(1, speed: 0.6f);
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSeconds(4f);
                 spawner(1, speed: 0.6f);
-                yield return new WaitForSeconds(2.0f);
+                yield return new WaitForSeconds(3.5f);
                 spawner(1, speed: 0.7f);
-                yield return new WaitForSeconds(1.5f);
+                yield return new WaitForSeconds(3.0f);
+                spawner(1, speed: 0.7f);
+                yield return new WaitForSeconds(3.0f);
+                spawner(1, speed: 0.75f);
+                yield return new WaitForSeconds(2.5f);
+                spawner(1, speed: 0.75f);
+                yield return new WaitForSeconds(2.5f);
                 spawner(1, speed: 0.8f);
-                yield return new WaitForSeconds(1.0f);
+                yield return new WaitForSeconds(2.0f);
+                spawner(1, speed: 0.8f);
+                yield return new WaitForSeconds(2.0f);
+                spawner(1, speed: 0.85f);
+                yield return new WaitForSeconds(1.5f);
+                spawner(1, speed: 0.85f);
+                yield return new WaitForSeconds(1.5f);
                 spawner(1, speed: 0.9f);
+                yield return new WaitForSeconds(1.5f);
+                yield return StartCoroutine(ap_v1_repeater(0.7f, 10, 1f));
+                yield return StartCoroutine(ap_v1_repeater(0.9f, 10, 1f));
+               
                 break;
 
             case 1:
+                yield return new WaitForSeconds(3f);
 
-                yield return new WaitForSeconds(3);
+                yield return StartCoroutine(ap_v1_repeater(1f,1,0f,0));
 
-                yield return StartCoroutine(ap_v1_repeatLine(0.6f));
+                yield return new WaitForSeconds(3f);
+
+                yield return StartCoroutine(ap_v1_repeater(1f, 2, 0.2f,-50));
+
+                yield return new WaitForSeconds(2f);
+
+                yield return StartCoroutine(ap_v1_repeater(1f, 4, 0.2f, 50));
+
+                yield return new WaitForSeconds(1f);
+
+                yield return StartCoroutine(ap_v1_repeater(1f, 10, 0.2f, 50));
 
                 break;
 
             case 2:
-                tempSpeed = 1f;
-
                 yield return new WaitForSeconds(3f);
-                spawner(2, speed: tempSpeed, x: 0);
-                yield return new WaitForSeconds(1f);
-                spawner(2, speed: tempSpeed, x: -100);
-                yield return new WaitForSeconds(1f);
-                spawner(2, speed: tempSpeed, x: 100);
+
+                yield return StartCoroutine(ap_v1_repeater(0.9f, 10, 0.9f));
+                yield return StartCoroutine(ap_v1_repeater(0.8f, 10, 0.8f));
+                yield return StartCoroutine(ap_v1_repeater(0.7f, 10, 0.7f));
+                yield return StartCoroutine(ap_v1_repeater(0.6f, 10, 0.6f));
 
                 break;
             case 3:
-                tempSpeed = 1.25f;
 
-                yield return new WaitForSeconds(2f);
-                spawner(2, speed: tempSpeed, x: 100);
-                yield return new WaitForSeconds(1f);
-                spawner(2, speed: tempSpeed, x: 0);
-                yield return new WaitForSeconds(1f);
-                spawner(2, speed: tempSpeed, x: -100);
                 break;
             case 4:
-                yield return new WaitForSeconds(3f);
-                spawner(3, speed: 0.5f, x: 0);
 
-                yield return new WaitForSeconds(1.0f);
-                spawner(3, speed: 0.75f);
-
-                yield return new WaitForSeconds(1.0f);
-                spawner(3, speed: 1.0f);
 
                 break;
-            case 5:
-                yield return new WaitForSeconds(3f);
-                spawner(5, speed: 1f);
-                break;
-            case 6:
-                yield return new WaitForSeconds(3f);
-                spawner(4, speed: 1f, x: 0);
+            default:
                 yield return new WaitForSeconds(1f);
-                spawner(4, speed: 1f, x: -100);
-                yield return new WaitForSeconds(1f);
-                spawner(4, speed: 1f, x: 100);
-
-                break;
-            case 7:
-                spawnBehind = 0.6f;
-                yield return new WaitForSeconds(3f);
-                spawner(4, speed: 1f, x: 0);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(4, speed: 1f, x: 0);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(4, speed: 1f, x: 0);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(4, speed: 1f, x: 0);
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(4, speed: 1f, x: 0);
-                break;
-            case 8:
-                spawnBehind = 0.3f;
-                tempSpeed = 0.5f;
-                yield return new WaitForSeconds(3f);
-                yield return StartCoroutine(ap_v2_line(0.5f));
-                yield return new WaitForSeconds(6f);
-                break;
-            case 9:
-                yield return StartCoroutine(ap_v2_line(0.5f));
-                yield return new WaitForSeconds(1f);
-                yield return StartCoroutine(ap_v2_line(0.5f));
-                yield return new WaitForSeconds(6f);
-                break;
-            case 10:
-                yield return StartCoroutine(ap_v2_line(0.5f));
-                yield return new WaitForSeconds(1f);
-                yield return StartCoroutine(ap_v2_line(0.5f));
-                yield return new WaitForSeconds(1f);
-                yield return StartCoroutine(ap_v2_line(0.5f));
-                yield return new WaitForSeconds(6f);
                 break;
         }
 
@@ -275,9 +243,8 @@ IEnumerator ap_v1_repeater(float speed, int repeats, float waitBehind, float sta
     {
         spawner(1, speed: speed, x: startX);
         yield return new WaitForSeconds(waitBehind);
-        i++;
     }
-
+    
 }
 
 IEnumerator ap_v1_1_repeater(float speed, int repeats, float waitBehind, float startX = 9999)

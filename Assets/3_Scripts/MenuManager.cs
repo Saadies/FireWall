@@ -10,6 +10,10 @@ public class MenuManager : MonoBehaviour
         
         SceneManager.LoadScene("BasicGameplay");
     }
+    public void PlayLevel1()
+    {
+        SceneManager.LoadScene("Level1_1");
+    }
 
     public void Start()
     {
