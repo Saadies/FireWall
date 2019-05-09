@@ -47,7 +47,7 @@ void Start()
     startTime = Time.time;
 
     screenHeight = 2f * cam.orthographicSize;
-    startY = screenHeight / 2;
+    startY = screenHeight / 2 + 50;
 
     float width = screenHeight * cam.aspect;
     spawnBorder = spawnBorder * (width / 2);
@@ -86,7 +86,10 @@ IEnumerator level1()
             case 0:
                 // yield return StartCoroutine (tutorial) 
                 //stop = true;
+
                 
+
+
                 yield return new WaitForSeconds(1.5f);
                 spawner(1, speed: 0.6f, x: 0);
                 yield return new WaitForSeconds(5f);
@@ -116,8 +119,8 @@ IEnumerator level1()
                 yield return new WaitForSeconds(1.5f);
                 spawner(1, speed: 0.9f);
                 yield return new WaitForSeconds(1.5f);
-                yield return StartCoroutine(ap_v1_repeater(0.7f, 10, 1f));
-                yield return StartCoroutine(ap_v1_repeater(0.9f, 10, 1f));
+                yield return StartCoroutine(ap_v1_repeater(0.7f, 3, 1f));
+                yield return StartCoroutine(ap_v1_repeater(0.9f, 3, 1f));
                
                 break;
 
@@ -143,14 +146,23 @@ IEnumerator level1()
             case 2:
                 yield return new WaitForSeconds(3f);
 
-                yield return StartCoroutine(ap_v1_repeater(0.9f, 10, 0.9f));
-                yield return StartCoroutine(ap_v1_repeater(0.8f, 10, 0.8f));
-                yield return StartCoroutine(ap_v1_repeater(0.7f, 10, 0.7f));
-                yield return StartCoroutine(ap_v1_repeater(0.6f, 10, 0.6f));
+                yield return StartCoroutine(ap_v1_alt_repeater(0.6f, 2, 0.4f));
+
+                yield return new WaitForSeconds(2f);
+
+                yield return StartCoroutine(ap_v1_alt_repeater(0.7f, 6, 0.5f));
+
+
 
                 break;
             case 3:
+                yield return new WaitForSeconds(3f);
 
+                yield return StartCoroutine(ap_v1_repeater(0.9f, 6, 0.9f));
+                yield return StartCoroutine(ap_v1_repeater(0.8f, 8, 0.8f));
+                yield return StartCoroutine(ap_v1_repeater(0.7f, 5, 0.7f));
+                yield return StartCoroutine(ap_v1_repeater(0.6f, 5, 0.6f));
+                yield return StartCoroutine(ap_v1_repeater(0.5f, 50, 0.5f));
                 break;
             case 4:
 
@@ -234,10 +246,7 @@ IEnumerator ap_v2_line(float speed)
 
 IEnumerator ap_v1_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
 {
-    if (startX != 9999)
-    {
-        startX = UnityEngine.Random.Range(-spawnBorder, spawnBorder);
-    }
+    
 
     for (int i = 1; i <= repeats; i++)
     {
@@ -247,7 +256,38 @@ IEnumerator ap_v1_repeater(float speed, int repeats, float waitBehind, float sta
     
 }
 
-IEnumerator ap_v1_1_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
+IEnumerator ap_v1_alt_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
+{
+    if (startX == 9999)
+    {
+        startX = UnityEngine.Random.Range(-spawnBorder+50, spawnBorder-50);
+    }
+
+        float leftX = startX - 50;
+        float rightX = startX + 50;
+        bool spawnRight = true;
+        float newX = startX;
+
+        for (int i = 1; i <= repeats; i++)
+        {
+            if (spawnRight)
+            {
+                newX = rightX;
+                spawnRight = false;
+            }
+            else
+            {
+                newX = leftX;
+                spawnRight = true;
+            }
+
+        spawner(1, speed: speed, x: newX);
+        yield return new WaitForSeconds(waitBehind);
+        }
+
+}
+
+    IEnumerator ap_v1_1_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
 {
     if (startX != 9999)
     {
