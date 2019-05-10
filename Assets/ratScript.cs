@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ratScript : MonoBehaviour
 {
+    public GameObject deathParticle;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,9 @@ public class ratScript : MonoBehaviour
     }
     void OnDestroy()
     {
-        
+        GameObject corpse = Instantiate(gameObject, this.transform.position, new Quaternion());
+        Destroy(corpse, 0.3f);
+        Instantiate(deathParticle, this.transform.position, new Quaternion());
         Object.Destroy(transform.parent.gameObject);
     }
 }

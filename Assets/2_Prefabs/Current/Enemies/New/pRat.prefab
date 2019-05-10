@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61c7e6a675a87940bc95d208be53fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathParticle: {fileID: 7712797386248695881, guid: cbb3ad128daeedb42a2c460a08b0addb,
+    type: 3}
 --- !u!1001 &1473077641926273714
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ TagManager:
   - 
   - Hearts
   - 
+  - pointlight
   - 
   - 
   - 
@@ -31,8 +32,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - PostProcessing
   - 
   - 
   - 

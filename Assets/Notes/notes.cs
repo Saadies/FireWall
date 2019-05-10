@@ -86,5 +86,6 @@
 	next game ideas
 	- whack a mole but you drag back from a central point in any direction, it could bounce the opposite way back to create more fun
 	- lane based turn based (pokemon-light)"rpg" ... with wizards and elements pls
-	- mobile katamari damacy but for mobile you are a black hole, 3d but with sprites?, maybe isometric with up/down button
+	- mobile katamari damacy but for mobile you are a black hole, 3d but with sprites?, maybe isometric with up/down button. maybe you can drag and push (4 "buttons") . make fun movement withour shitty digital pads
+	
 */
