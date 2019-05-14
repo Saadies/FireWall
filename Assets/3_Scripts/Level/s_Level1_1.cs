@@ -87,7 +87,7 @@ IEnumerator level1()
                 // yield return StartCoroutine (tutorial) 
                 //stop = true;
 
-                
+                yield return StartCoroutine(ap_v1_sway_repeater(0.5f,50,2f));
 
 
                 yield return new WaitForSeconds(1.5f);
@@ -256,7 +256,19 @@ IEnumerator ap_v1_repeater(float speed, int repeats, float waitBehind, float sta
     
 }
 
-IEnumerator ap_v1_alt_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
+    IEnumerator ap_v1_sway_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
+    {
+
+
+        for (int i = 1; i <= repeats; i++)
+        {
+            spawner(3, speed: speed, x: startX);
+            yield return new WaitForSeconds(waitBehind);
+        }
+
+    }
+
+    IEnumerator ap_v1_alt_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
 {
     if (startX == 9999)
     {
