@@ -18,7 +18,7 @@ public class ratScript : MonoBehaviour
     }
     void OnDestroy()
     {
-        GameObject corpse = Instantiate(gameObject, this.transform.position, new Quaternion());
+        GameObject corpse = Instantiate(gameObject.gameObject, this.transform.position, new Quaternion());
         Destroy(corpse, 0.3f);
         Instantiate(deathParticle, this.transform.position, new Quaternion());
         Object.Destroy(transform.parent.gameObject);

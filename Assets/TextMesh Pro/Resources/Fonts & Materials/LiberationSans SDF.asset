@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: LiberationSans SDF Material
   m_Shader: {fileID: 4800000, guid: bc1ede39bf3643ee8e493720e4259791, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA OUTLINE_ON UNDERLAY_ON
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA OUTLINE_ON
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -29,7 +29,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _ColorMask: 15
-    - _FaceDilate: 0.03
+    - _FaceDilate: 0.06
     - _GradientScale: 10
     - _MaskEdgeSoftness: 0.01
     - _MaskInverse: 0
@@ -37,11 +37,11 @@ Material:
     - _MaskSoftnessY: 0
     - _MaskWipeControl: -4.8999977
     - _OutlineSoftness: 0
-    - _OutlineWidth: 0.286
+    - _OutlineWidth: 0.181
     - _PerspectiveFilter: 0.875
     - _ScaleRatioA: 0.9
     - _ScaleRatioB: 1
-    - _ScaleRatioC: 0.49946806
+    - _ScaleRatioC: 0.4803191
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -65,7 +65,7 @@ Material:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
     - _MaskEdgeColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _UnderlayColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &11400000
 MonoBehaviour:
