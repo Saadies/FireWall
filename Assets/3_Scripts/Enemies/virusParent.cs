@@ -6,6 +6,7 @@ public class virusParent : MonoBehaviour
 {
     Animator m_Animator;
     private GameObject mySprite;
+    
 
     void OnDestroy()
     {

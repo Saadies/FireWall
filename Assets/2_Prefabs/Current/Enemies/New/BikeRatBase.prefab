@@ -4729,7 +4729,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3373073718257798646}
-  - component: {fileID: 9183223526538539998}
   - component: {fileID: 5559525894797060193}
   - component: {fileID: 7878720086322418145}
   - component: {fileID: 8255579413758559747}
@@ -4749,32 +4748,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9183223526538539999}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2875851608179532383}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &9183223526538539998
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9183223526538539999}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9ec7a154f9ca81f41ac0f24f8f7af004, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &5559525894797060193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4838,6 +4818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathParticle: {fileID: 7712797386248695881, guid: cbb3ad128daeedb42a2c460a08b0addb,
     type: 3}
+  corpse: {fileID: 3988121393497149794, guid: d5bf139e0b1702343b94f915dc5e19bb, type: 3}
 --- !u!1001 &7103204666436962629
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   intensity:
-    overrideState: 1
+    overrideState: 0
     value: -100
   intensityX:
     overrideState: 0
@@ -78,10 +78,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 53.72
+    value: 169.71
   threshold:
     overrideState: 1
-    value: 74.91
+    value: 379.2
   softKnee:
     overrideState: 0
     value: 0.5
@@ -125,7 +125,7 @@ MonoBehaviour:
     value: 1
   gradingMode:
     overrideState: 1
-    value: 1
+    value: 0
   externalLut:
     overrideState: 0
     value: {fileID: 0}
@@ -157,34 +157,34 @@ MonoBehaviour:
     defaultState: 4
   ldrLutContribution:
     overrideState: 0
-    value: 0.175
+    value: 0
   temperature:
     overrideState: 1
-    value: 57
+    value: -100
   tint:
-    overrideState: 1
-    value: -38
-  colorFilter:
-    overrideState: 0
-    value: {r: 0.03810537, g: 1, b: 0, a: 1}
-  hueShift:
-    overrideState: 0
-    value: 110
-  saturation:
-    overrideState: 1
-    value: -16
-  brightness:
     overrideState: 0
     value: 0
+  colorFilter:
+    overrideState: 1
+    value: {r: 1, g: 1, b: 1, a: 1}
+  hueShift:
+    overrideState: 0
+    value: -44
+  saturation:
+    overrideState: 1
+    value: 1
+  brightness:
+    overrideState: 1
+    value: 7
   postExposure:
     overrideState: 0
     value: -1.1
   contrast:
     overrideState: 1
-    value: 76
+    value: 31
   mixerRedOutRedIn:
     overrideState: 0
-    value: 100
+    value: 35
   mixerRedOutGreenIn:
     overrideState: 0
     value: 0
@@ -211,13 +211,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    value: {x: 0.93191373, y: 1, z: 0.973186, w: 0}
   gamma:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    value: {x: 0.8897299, y: 0.9850579, z: 1, w: 0}
   gain:
-    overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    overrideState: 1
+    value: {x: 1, y: 0.9026981, z: 0.60026187, w: 0}
   masterCurve:
     overrideState: 0
     value:
@@ -1461,7 +1461,7 @@ MonoBehaviour:
     value: 0.72
   color:
     overrideState: 1
-    value: {r: 0.0036325455, g: 1, b: 0, a: 1}
+    value: {r: 0.062964655, g: 0.084905684, b: 0.062878266, a: 1}
   ambientOnly:
     overrideState: 0
     value: 1
@@ -1476,7 +1476,7 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 7.24
+    value: 1
   directLightingStrength:
     overrideState: 1
     value: 0.442

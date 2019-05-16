@@ -5,10 +5,12 @@ using UnityEngine;
 public class ratScript : MonoBehaviour
 {
     public GameObject deathParticle;
+    public GameObject corpse;
     // Start is called before the first frame update
     void Start()
     {
-        Object.Destroy(gameObject, 10f);
+        //Clean up in case of bug
+        Destroy(gameObject, 10f);
     }
 
     // Update is called once per frame
@@ -18,9 +20,13 @@ public class ratScript : MonoBehaviour
     }
     void OnDestroy()
     {
-        GameObject corpse = Instantiate(gameObject.gameObject, this.transform.position, new Quaternion());
-        Destroy(corpse, 0.3f);
+        //Should destroy itself onStart
+        //Destroy(corpse, 0.3f);
+        Instantiate(corpse, this.transform.position, this.transform.rotation);
+       
+
         Instantiate(deathParticle, this.transform.position, new Quaternion());
-        Object.Destroy(transform.parent.gameObject);
+        Destroy(transform.parent.gameObject);
     }
+
 }

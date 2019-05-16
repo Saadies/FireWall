@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5533001384342748897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3175020433489995044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298ca5d3931e1ed4eaf90290afe98cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathParticle: {fileID: 0}
+--- !u!1001 &6310149433139575571
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8907512278713998903, guid: 6aa947f8c1ffcc5428e2294410e13f51,
+        type: 3}
+      propertyPath: m_Name
+      value: RatCorpse
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036299922842132510, guid: 6aa947f8c1ffcc5428e2294410e13f51,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036299922842132510, guid: 6aa947f8c1ffcc5428e2294410e13f51,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036299922842132510, guid: 6aa947f8c1ffcc5428e2294410e13f51,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036299922842132510, guid: 6aa947f8c1ffcc5428e2294410e13f51,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8907512278713998902, guid: 6aa947f8c1ffcc5428e2294410e13f51, type: 3}
+    - {fileID: 5604427287567258765, guid: 6aa947f8c1ffcc5428e2294410e13f51, type: 3}
+    - {fileID: 5317604669064578441, guid: 6aa947f8c1ffcc5428e2294410e13f51, type: 3}
+    - {fileID: 7618503086927051785, guid: 6aa947f8c1ffcc5428e2294410e13f51, type: 3}
+    - {fileID: 8538050429578128363, guid: 6aa947f8c1ffcc5428e2294410e13f51, type: 3}
+    - {fileID: 7070690618569113523, guid: 6aa947f8c1ffcc5428e2294410e13f51, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 6aa947f8c1ffcc5428e2294410e13f51, type: 3}
+--- !u!1 &3175020433489995044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8907512278713998903, guid: 6aa947f8c1ffcc5428e2294410e13f51,
+    type: 3}
+  m_PrefabInstance: {fileID: 6310149433139575571}
+  m_PrefabAsset: {fileID: 0}
