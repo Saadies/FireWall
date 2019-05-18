@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1375622925345417585}
   - component: {fileID: 1375622925345417586}
+  - component: {fileID: 6152238060750548981}
   m_Layer: 0
   m_Name: pRatBoss
   m_TagString: Untagged
@@ -51,6 +52,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6152238060750548981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375622925345417584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12f01d4cbfbba8439ea76eabd2f75bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemies:
+  - {fileID: 5210678799035126883, guid: 8c3bb737266ddd74ab4afdd958e4810a, type: 3}
+  - {fileID: 8322212515161032797, guid: 024fed5867616934e8010bfef1d33fcd, type: 3}
+  - {fileID: 8322212515161032797, guid: 54fac76ea32719f45be169ca86cc6956, type: 3}
+  - {fileID: 3958715041056722043, guid: 122da8addcb905e4c8110c8448526fb9, type: 3}
+  RatBoss: {fileID: 1375622926022461750}
+  t: 0
+  spawnBorder: 0.8
+  cam: {fileID: 8917055092723678162, guid: a63fa02f99cb23c4491f70347290de94, type: 3}
+  spawnCount: 0
+  stop: 0
+  normalSpeed: 1
+  normalSpawn: 1
+  speedMod: 1
+  spawnMod: 1
+  Health: 100
 --- !u!1 &1375622926022461750
 GameObject:
   m_ObjectHideFlags: 0

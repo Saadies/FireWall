@@ -7,6 +7,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 535364616746779529, guid: d1af972fcb91bc24b88685a3bb9f7760,
+        type: 3}
+      propertyPath: m_Name
+      value: pRat Variant wave
+      objectReference: {fileID: 0}
+    - target: {fileID: 6256400108219399584, guid: d1af972fcb91bc24b88685a3bb9f7760,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 1696139549426931792, guid: d1af972fcb91bc24b88685a3bb9f7760,
         type: 3}
       propertyPath: m_Name
@@ -92,10 +102,5 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0b1b6a2d22d96564f9037ae143ea84cf, type: 2}
-    - target: {fileID: 535364616746779529, guid: d1af972fcb91bc24b88685a3bb9f7760,
-        type: 3}
-      propertyPath: m_Name
-      value: pRat Variant wave
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1af972fcb91bc24b88685a3bb9f7760, type: 3}
