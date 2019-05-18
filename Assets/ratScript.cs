@@ -23,10 +23,11 @@ public class ratScript : MonoBehaviour
         //Should destroy itself onStart
         //Destroy(corpse, 0.3f);
         Instantiate(corpse, this.transform.position, this.transform.rotation);
-       
 
-        Instantiate(deathParticle, this.transform.position, new Quaternion());
-        Destroy(transform.parent.gameObject);
+        Vector3 particlepos = this.transform.position;
+        particlepos.y = particlepos.y - 30;
+        Instantiate(deathParticle, particlepos, new Quaternion());
+        Destroy(transform.parent.gameObject,5f);
     }
 
 }

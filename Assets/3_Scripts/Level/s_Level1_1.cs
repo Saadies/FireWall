@@ -164,7 +164,7 @@ IEnumerator level1()
                 yield return StartCoroutine(ap_v1_repeater(0.8f, 4, 0.8f));
                 yield return StartCoroutine(ap_v1_repeater(0.7f, 5, 0.7f));
                 yield return StartCoroutine(ap_v1_repeater(0.6f, 6, 0.6f));
-                yield return StartCoroutine(ap_v1_repeater(0.5f, 20, 0.5f));
+                yield return StartCoroutine(ap_v1_repeater(0.5f, 10, 0.5f));
                 break;
             case 4:
 
@@ -182,98 +182,130 @@ IEnumerator level1()
 
                 yield return new WaitForSeconds(5f);
 
-                spawner(3, speed: 0.4f, x: -45);
-                spawner(4, speed: 0.4f, x: 45);
+                spawner(5, speed: 0.7f, x: 0);
                 yield return new WaitForSeconds(4f);
 
-                spawner(3, speed: 0.5f, x: -140);
-                spawner(4, speed: 0.5f, x: -95);
+                spawner(5, speed: 0.75f, x: -100);
 
                 yield return new WaitForSeconds(3f);
 
-                spawner(3, speed: 0.6f, x: 95);
-                spawner(4, speed: 0.6f, x: 140);
+                spawner(5, speed: 0.8f, x: 100);
+
+                yield return new WaitForSeconds(3f);
+
+                spawner(5, speed: 0.7f, x: -100);
+                yield return new WaitForSeconds(1f);
+                spawner(5, speed: 0.7f, x: 100);
+                yield return new WaitForSeconds(1f);
+                spawner(5, speed: 0.7f, x: 0);
+
                 yield return new WaitForSeconds(3f);
                 spawner(3, speed: 0.55f);
                 yield return new WaitForSeconds(2f);
                 spawner(4, speed: 0.5f);
                 yield return new WaitForSeconds(1f);
+                spawner(5, speed: 0.5f);
+                yield return new WaitForSeconds(1f);
+                spawner(4, speed: 0.5f);
+                yield return new WaitForSeconds(1f);
                 spawner(4, speed: 0.5f);
                 yield return new WaitForSeconds(1f);
                 spawner(3, speed: 0.5f);
                 yield return new WaitForSeconds(1f);
-                spawner(4, speed: 0.5f);
+                spawner(4, speed: 0.55f);
                 yield return new WaitForSeconds(1f);
-                spawner(3, speed: 0.5f);
+                spawner(5, speed: 0.6f);
                 yield return new WaitForSeconds(1f);
-                spawner(3, speed: 0.5f);
-                yield return new WaitForSeconds(1f);
-                spawner(3, speed: 0.5f);
-                yield return new WaitForSeconds(1f);
-                spawner(4, speed: 0.5f);
+                spawner(3, speed: 0.55f);
 
                 break;
             case 5:
+                
                 yield return new WaitForSeconds(5f);
                 spawner(666,speed: 0.5f);
                 yield return new WaitForSeconds(1f);
                 spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.9f);
                 spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                spawner(666, speed: 0.5f);
+
+                spawnBehind = 0.8f;
+                tempSpeed = 0.5f;
+
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+
+                spawnBehind = 0.75f;
+                tempSpeed = 0.55f;
+
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+
+                spawnBehind = 0.7f;
+                tempSpeed = 0.6f;
+
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+
+                spawnBehind = 0.65f;
+                tempSpeed = 0.65f;
+
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+
+                spawnBehind = 0.6f;
+                tempSpeed = 0.7f;
+
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+                yield return new WaitForSeconds(spawnBehind);
+                spawner(666, speed: tempSpeed);
+
+                break;
+            case 6:
+                Instantiate(Enemies[4]);
+                stop = true;
                 break;
             default:
-                yield return new WaitForSeconds(0.4f);
-                spawner(666, speed: 0.5f);
+                yield return new WaitForSeconds(0.45f);
+                //spawner(666, speed: 0.25f);
                 break;
         }
 
@@ -480,7 +512,7 @@ void customSpawner(List<int> types)
 
 //spawntype 666 is random type
 
-void spawner(int spawnType, int maxType = 4, int startType = 1, float speed = 1, float x = 9999, string spawnText = "")
+void spawner(int spawnType, int maxType = 5, int startType = 1, float speed = 1, float x = 9999, string spawnText = "")
 {
 
     float randomX = UnityEngine.Random.Range(-spawnBorder, spawnBorder);
@@ -542,10 +574,13 @@ void spawner(int spawnType, int maxType = 4, int startType = 1, float speed = 1,
 
             break;
         case 5:
-            spawnedEnemy = Instantiate(Enemies[3], bossPos, new Quaternion());
+            //2 bikes splitting up
+            spawnedEnemy = Instantiate(Enemies[3], startPos, new Quaternion());
             setSpeed(speed, spawnedEnemy);
-            stop = true;
+
             break;
+        case 6:
+
         case 666:
             spawner(newSpawn, maxType, startType, speed);
             break;
