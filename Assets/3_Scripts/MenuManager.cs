@@ -7,6 +7,7 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject bossPrefab;
     public GameObject repeatUI;
+    public GameObject winScreen;
     public void PlayGame()
     {
         
@@ -25,6 +26,11 @@ public class MenuManager : MonoBehaviour
     public void Start()
     {
         
+    }
+
+    public void setWin()
+    {
+        winScreen.SetActive(true);
     }
 
     public void PlayBoss()

@@ -9,6 +9,7 @@ TagManager:
   - Canvas
   - bullet
   - enemyWallImmune
+  - winScreen
   layers:
   - Default
   - TransparentFX

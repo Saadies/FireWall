@@ -9,6 +9,7 @@ public class s_Level1_1_boss : MonoBehaviour
 
     public GameObject[] Enemies;
     public GameObject RatBoss;
+    private GameObject winScreen;
     
     
     [SerializeField]
@@ -232,6 +233,20 @@ IEnumerator level1()
                 reduceHealth(10);
                 yield return StartCoroutine(ap_v1_repeater(tempSpeed, 20, 0.3f));
                 reduceHealth(10);
+
+                
+
+                break;
+            case 2:
+                yield return new WaitForSeconds(1f);
+
+                MenuManager MenuManager = GameObject.Find("Level1").GetComponent<MenuManager>();
+                MenuManager.setWin();
+
+                yield return new WaitForSeconds(5f);
+
+                
+                MenuManager.LoadMenu();
                 break;
 
             default:
