@@ -89,6 +89,8 @@ void reduceHealth(int reduce)
 
 public void startLevel1()
 {
+        spawnCount = 1;
+        Health = 100;
     StartCoroutine(level1());
 }
 
@@ -98,6 +100,8 @@ IEnumerator level1()
 
     float spawnBehind;
     float tempSpeed;
+
+        PlayerPrefs.SetInt("endgame", 1);
 
         switch (spawnCount)
         {
@@ -109,9 +113,28 @@ IEnumerator level1()
                 
 
                 yield return new WaitForSeconds(6f);
+                tempSpeed = 0.6f;
+
+                reduceHealth(15);
+
+                spawnBehind = 0.3f;
+
+                yield return StartCoroutine(ap_v1_repeater(tempSpeed, 3, 0.25f, startX: 0));
+                yield return new WaitForSeconds(spawnBehind);
+                yield return StartCoroutine(ap_v1_repeater(tempSpeed, 3, 0.25f, startX: -150));
+                yield return new WaitForSeconds(spawnBehind);
+                yield return StartCoroutine(ap_v1_repeater(tempSpeed, 3, 0.25f, startX: 100));
+                yield return new WaitForSeconds(spawnBehind);
+                yield return StartCoroutine(ap_v1_repeater(tempSpeed, 3, 0.25f, startX: -50));
+                yield return new WaitForSeconds(spawnBehind);
+                yield return StartCoroutine(ap_v1_repeater(tempSpeed, 3, 0.25f, startX: 50));
+                yield return new WaitForSeconds(spawnBehind);
+
+                yield return new WaitForSeconds(1f);
+
 
                 spawnBehind = 0.7f;
-                tempSpeed = 0.6f;
+                
 
                 reduceHealth(7);
 
@@ -131,22 +154,7 @@ IEnumerator level1()
 
                 yield return new WaitForSeconds(2f);
 
-                reduceHealth(15);
-
-                spawnBehind = 0.3f;
-
-                yield return StartCoroutine(ap_v1_repeater(tempSpeed, 3, 0.25f, startX: 0));
-                yield return new WaitForSeconds(spawnBehind);
-                yield return StartCoroutine(ap_v1_repeater(tempSpeed, 3, 0.25f, startX: -150));
-                yield return new WaitForSeconds(spawnBehind);
-                yield return StartCoroutine(ap_v1_repeater(tempSpeed, 3, 0.25f, startX: 100));
-                yield return new WaitForSeconds(spawnBehind);
-                yield return StartCoroutine(ap_v1_repeater(tempSpeed, 3, 0.25f, startX: -50));
-                yield return new WaitForSeconds(spawnBehind);
-                yield return StartCoroutine(ap_v1_repeater(tempSpeed, 3, 0.25f, startX: 50));
-                yield return new WaitForSeconds(spawnBehind);
-
-                yield return new WaitForSeconds(1f);
+                
 
                 reduceHealth(18);
 
@@ -169,6 +177,8 @@ IEnumerator level1()
 
                 tempSpeed = 0.9f;
 
+                reduceHealth(10);
+
                 spawner(5, speed: tempSpeed, x: -150);
 
                 yield return new WaitForSeconds(1f);
@@ -179,8 +189,49 @@ IEnumerator level1()
 
                 spawner(5, speed: tempSpeed, x: -100);
 
+                yield return new WaitForSeconds(2.0f);
+
+                tempSpeed = 0.6f;
+
+                spawner(3, speed: tempSpeed, x: 100);
+
+                spawner(3, speed: tempSpeed, x: 150);
+
+                yield return new WaitForSeconds(1f);
+
+                spawner(4, speed: tempSpeed, x: -100);
+
+                spawner(4, speed: tempSpeed, x: -150);
+
+                yield return new WaitForSeconds(1.5f);
+
+                reduceHealth(7);
+
+                spawner(5, speed: tempSpeed, x: 0);
+
+                yield return StartCoroutine(ap_v1_repeater(tempSpeed+0.1f, 5, 0.35f, startX: 0));
+
                 yield return new WaitForSeconds(2f);
 
+                spawner(5, speed: tempSpeed, x: -100);
+
+                yield return new WaitForSeconds(2f);
+
+                tempSpeed = 0.7f;
+
+                reduceHealth(10);
+                yield return StartCoroutine(ap_v1_repeater(tempSpeed, 10, 0.5f));
+
+                tempSpeed = 0.6f;
+
+                reduceHealth(20);
+                yield return StartCoroutine(ap_v1_repeater(tempSpeed, 20, 0.4f));
+
+                tempSpeed = 0.45f;
+
+                reduceHealth(10);
+                yield return StartCoroutine(ap_v1_repeater(tempSpeed, 20, 0.3f));
+                reduceHealth(10);
                 break;
 
             default:

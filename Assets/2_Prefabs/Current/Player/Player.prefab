@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe3dfde572c4de419f1ee0eb47e30ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  repeatUI: {fileID: 0}
   health1: {fileID: 0}
   health2: {fileID: 0}
-  face: {fileID: 0}
 --- !u!61 &6689418115071742837
 BoxCollider2D:
   m_ObjectHideFlags: 0

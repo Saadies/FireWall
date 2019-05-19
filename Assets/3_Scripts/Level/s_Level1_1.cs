@@ -75,7 +75,8 @@ void Update()
 
 public void startLevel1()
 {
-    StartCoroutine(level1());
+        PlayerPrefs.SetInt("endgame", 0);
+        StartCoroutine(level1());
 }
 
 IEnumerator level1()
@@ -304,6 +305,7 @@ IEnumerator level1()
 
                 break;
             case 6:
+                PlayerPrefs.SetInt("endgame", 1);
                 Instantiate(Enemies[4]);
                 stop = true;
                 break;

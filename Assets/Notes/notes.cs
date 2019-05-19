@@ -89,5 +89,13 @@
 	- whack a mole but you drag back from a central point in any direction, it could bounce the opposite way back to create more fun
 	- lane based turn based (pokemon-light)"rpg" ... with wizards and elements pls
 	- mobile katamari damacy but for mobile you are a black hole, 3d but with sprites?, maybe isometric with up/down button. maybe you can drag and push (4 "buttons") . make fun movement withour shitty digital pads
-	
+	- mobile pinball, the ball is enlarged at the bottom and you can choose direction depending on where you tap. a highlighted area bar at the bottom of the level indicates when your taps work, sooner = harder
+
+    vr:
+    controlling a mech that has a lot of buttons and levers and you have to do simple task (construction, rescue mission, intro level could be a show where you have to do what the presenter says)
+        handposition is hovering ball/on shoulder or just position same as body, fingers are sliders,  hand rotation  2 levers
+        upper and lower buddy are seperated, tv screen with third person view.
+        upper lower buddy rotation are horizontal "wheels" (embedded)
+        squatting/crouch could be one button, bücken second button
+ 
 */

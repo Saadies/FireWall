@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerCollision : MonoBehaviour
 {
     GameObject level;
-    EnemySpawnerScript ESscript;
+    MenuManager MenuManager;
+    public GameObject repeatUI;
     ParticleSystem PaSys;
     [SerializeField]
     GameObject health1;
@@ -18,7 +19,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void Start()
     {
-       
+        MenuManager = GameObject.Find("Level1").GetComponent<MenuManager>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -31,17 +32,32 @@ public class PlayerCollision : MonoBehaviour
 
             if (health == 3)
             {
-                Destroy(health1);
+                health1.SetActive(false);
 
             }
             if (health == 2)
             {
-                Destroy(health2);
+                health2.SetActive(false);
 
             }
             if (health <= 1)
             {
-                SceneManager.LoadScene("StarMenu");
+                int bossState = PlayerPrefs.GetInt("endgame");
+                if (bossState == 0)
+                {
+                    MenuManager.LoadMenu();
+                }
+                else
+                {
+                        Time.timeScale = 0;
+                    //TODO Destroy all rats
+                    //SrepeatUI.enabled = true;
+                    repeatUI.SetActive(true);
+                    health1.SetActive(true);
+                    health2.SetActive(true);
+                    health = 4;
+                }
+                
             }
             
 
