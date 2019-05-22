@@ -19,7 +19,15 @@ public class PlayerCollision : MonoBehaviour
 
     private void Start()
     {
-        MenuManager = GameObject.Find("Level1").GetComponent<MenuManager>();
+        if (GameObject.Find("Level1"))
+        {
+            MenuManager = GameObject.Find("Level1").GetComponent<MenuManager>();
+        }
+        else
+        {
+            MenuManager = GameObject.Find("Level2").GetComponent<MenuManager>();
+        }
+        
     }
 
     void OnTriggerEnter2D(Collider2D col)

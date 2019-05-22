@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2401993811444962938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2401993811444962885}
+  - component: {fileID: 2401993811444962884}
+  - component: {fileID: 93729537218014959}
+  m_Layer: 0
+  m_Name: Level2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2401993811444962885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401993811444962938}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2401993811444962884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401993811444962938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28ec12d1c8e30e4eb8d527c35f9b676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemies:
+  - {fileID: 5210678799035126883, guid: 8c3bb737266ddd74ab4afdd958e4810a, type: 3}
+  - {fileID: 8322212515161032797, guid: 024fed5867616934e8010bfef1d33fcd, type: 3}
+  - {fileID: 8322212515161032797, guid: 54fac76ea32719f45be169ca86cc6956, type: 3}
+  - {fileID: 3958715041056722043, guid: 122da8addcb905e4c8110c8448526fb9, type: 3}
+  - {fileID: 1375622925345417584, guid: 4c408eec974d8eb4a8b8ca0babf4cfe5, type: 3}
+  t: 0
+  spawnBorder: 0.8
+  spawnCount: 1
+  stop: 0
+  normalSpeed: 1
+  normalSpawn: 1
+  speedMod: 1
+  spawnMod: 1
+--- !u!114 &93729537218014959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401993811444962938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d8871a387725349a20f47faa789046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossPrefab: {fileID: 1375622925345417584, guid: 4c408eec974d8eb4a8b8ca0babf4cfe5,
+    type: 3}
+  repeatUI: {fileID: 0}
+  winScreen: {fileID: 0}

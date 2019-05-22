@@ -17,6 +17,10 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("Level1_1");
     }
+    public void PlayLevel2()
+    {
+        SceneManager.LoadScene("Level1_2");
+    }
 
     public void LoadMenu()
     {
