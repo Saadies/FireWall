@@ -20,7 +20,8 @@ public class virusParent : MonoBehaviour
 
     private void Start()
     {
-       // setSpeed(0.5f);
+        //cleanup bugged
+        Destroy(gameObject, 5f);
 
         
     }

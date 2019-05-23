@@ -57,6 +57,8 @@ void Start()
     spawnCount = PlayerPrefs.GetInt("spawnCount", spawnCount);
     PlayerPrefs.SetInt("endgame", 0);
 
+    normalSpeed = 1f;
+    normalSpawn = 1f;
 
     startLevel1();
 
@@ -83,20 +85,113 @@ IEnumerator level1()
 {
     stop = false;
 
-    float spawnBehind = 0.75f;
-    float tempSpeed;
+        
 
         switch (spawnCount)
         {
             case 0:
+                //tutorial
+                break;
+            case 1:
+                normalSpawn = 1.5f;
+                normalSpeed = 0.6f;
 
+                //TEST
+                /*
+                spawner(3, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 5);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 5);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 5);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 5);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 5);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 5);
+                yield return new WaitForSeconds(normalSpawn);
+                */
+                //TEST
+
+
+                spawner(1, speed: normalSpeed,x:2);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 1);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 2);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 3);
+
+
+                yield return new WaitForSeconds(3f);
+                normalSpawn = 1f;
+                normalSpeed = 0.8f;
+
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 2);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 2);
+
+                normalSpawn = 0.8f;
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 3);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 3);
+
+                yield return new WaitForSeconds(2f);
+                normalSpawn = 0.75f;
+                normalSpeed = 1f;
+
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 3);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 2);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 1);
+
+                yield return new WaitForSeconds(2f);
+                normalSpawn = 0.65f;
+                normalSpeed = 1f;
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 3);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 1);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 3);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 1);
+
+                yield return new WaitForSeconds(5f);
+                break;
+
+            case 99:
+                normalSpawn = 1f;
+                break;
             default:
-                yield return new WaitForSeconds(spawnBehind);
-                spawner(1);
+
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1,speed:normalSpeed);
                 //spawner(666, speed: 0.25f);
-                if (spawnBehind > 0.15f)
+                if (normalSpawn > 0.65f)
                 {
-                    spawnBehind -= 0.01f;
+                    normalSpawn -= 0.05f;
+                    
+                }
+                if(normalSpeed < 2.0f)
+                {
+                    normalSpeed += 0.01f;
                 }
                 break;
         }
@@ -122,57 +217,10 @@ IEnumerator tutorial1()
 
 #region ATTACK_PATTERNS
 
-IEnumerator ap_v1_repeatLine(float speed)
-{
-    float spawnBehind = speed / 2;
 
 
-    yield return new WaitForSeconds(1f);
-    spawner(1, speed: speed, x: -100);
-    yield return new WaitForSeconds(spawnBehind);
-    spawner(1, speed: speed, x: -100);
-    yield return new WaitForSeconds(spawnBehind);
-    spawner(1, speed: speed, x: -100);
 
-    yield return new WaitForSeconds(1f);
-    spawner(1, speed: speed, x: 0);
-    yield return new WaitForSeconds(spawnBehind);
-    spawner(1, speed: speed, x: 0);
-    yield return new WaitForSeconds(spawnBehind);
-    spawner(1, speed: speed, x: 0);
-    yield return new WaitForSeconds(spawnBehind);
-    spawner(1, speed: speed, x: 0);
-
-    yield return new WaitForSeconds(1f);
-    spawner(1, speed: speed, x: 100);
-    yield return new WaitForSeconds(spawnBehind);
-    spawner(1, speed: speed, x: 100);
-    yield return new WaitForSeconds(spawnBehind);
-    spawner(1, speed: speed, x: 100);
-    yield return new WaitForSeconds(spawnBehind);
-    spawner(1, speed: speed, x: 100);
-    yield return new WaitForSeconds(spawnBehind);
-    spawner(1, speed: speed, x: 100);
-
-
-}
-
-IEnumerator ap_v2_line(float speed)
-{
-    spawner(4, speed: speed, x: -200);
-
-    spawner(4, speed: speed, x: -100);
-
-    spawner(4, speed: speed, x: 0);
-
-    spawner(4, speed: speed, x: 100);
-
-    spawner(4, speed: speed, x: 200);
-
-    yield return null;
-}
-
-IEnumerator ap_v1_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
+IEnumerator ap_v2_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
 {
     
 
@@ -182,106 +230,6 @@ IEnumerator ap_v1_repeater(float speed, int repeats, float waitBehind, float sta
         yield return new WaitForSeconds(waitBehind);
     }
     
-}
-
-    IEnumerator ap_v1_sway_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
-    {
-
-
-        for (int i = 1; i <= repeats; i++)
-        {
-            spawner(3, speed: speed, x: startX);
-            yield return new WaitForSeconds(waitBehind);
-        }
-
-    }
-
-    IEnumerator ap_v1_sway_alt_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
-    {
-
-
-        for (int i = 1; i <= repeats; i++)
-        {
-            spawner(4, speed: speed, x: startX);
-            yield return new WaitForSeconds(waitBehind);
-        }
-
-    }
-
-    IEnumerator ap_v1_alt_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
-{
-    if (startX == 9999)
-    {
-        startX = UnityEngine.Random.Range(-spawnBorder+50, spawnBorder-50);
-    }
-
-        float leftX = startX - 50;
-        float rightX = startX + 50;
-        bool spawnRight = true;
-        float newX = startX;
-
-        for (int i = 1; i <= repeats; i++)
-        {
-            if (spawnRight)
-            {
-                newX = rightX;
-                spawnRight = false;
-            }
-            else
-            {
-                newX = leftX;
-                spawnRight = true;
-            }
-
-        spawner(1, speed: speed, x: newX);
-        yield return new WaitForSeconds(waitBehind);
-        }
-
-}
-
-    IEnumerator ap_v1_1_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
-{
-    if (startX != 9999)
-    {
-        startX = UnityEngine.Random.Range(-spawnBorder, spawnBorder);
-    }
-
-    for (int i = 1; i <= repeats; i++)
-    {
-        spawner(2, speed: speed, x: startX);
-        yield return new WaitForSeconds(waitBehind);
-    }
-
-}
-
-IEnumerator ap_v1_2_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
-{
-    if (startX != 9999)
-    {
-        startX = UnityEngine.Random.Range(-spawnBorder, spawnBorder);
-    }
-
-    for (int i = 1; i <= repeats; i++)
-    {
-        spawner(3, speed: speed, x: startX);
-        yield return new WaitForSeconds(waitBehind);
-    }
-
-}
-
-IEnumerator ap_v2_repeater(float speed, int repeats, float waitBehind, float startX = 9999)
-{
-    if (startX != 9999)
-    {
-        startX = UnityEngine.Random.Range(-spawnBorder, spawnBorder);
-    }
-
-    for (int i = 1; i <= repeats; i++)
-    {
-        spawner(4, speed: speed, x: startX);
-        yield return new WaitForSeconds(waitBehind);
-    }
-
 }
 
 #endregion
@@ -303,7 +251,7 @@ void customSpawner(List<int> types)
 }
 
 //spawntype 666 is random type
-
+//x = 9999 is random position
 void spawner(int spawnType, int maxType = 5, int startType = 1, float speed = 1, float x = 9999, string spawnText = "")
 {
 
@@ -312,20 +260,48 @@ void spawner(int spawnType, int maxType = 5, int startType = 1, float speed = 1,
 
     if (x != 9999)
     {
-        startX = x;
-    }
+            switch (x)
+            {
+                //set random position on lanes
+                case 1:
+                    startX = -140;
+                    break;
+                case 2:
+                    startX = 00;
+                    break;
+                case 3:
+                    startX = 140;
+                    break;
+                case 4:
+                    startX = -70;
+                    break;
+                case 5:
+                    startX = 70;
+                    break;
+                default:
+                    startX = 0;
+                    break;
+            }
+        }
     else
     {
             switch (randomX)
             {
+                //set random position on lanes
                 case 1:
-                    startX = -170;
+                    startX = -140;
                     break;
                 case 2:
-                    startX = -30;
+                    startX = 00;
                     break;
                 case 3:
-                    startX = 110;
+                    startX = 140;
+                    break;
+                case 4:
+                    startX = -70;
+                    break;
+                case 5:
+                    startX = 70;
                     break;
                 default:
                     startX = 0;

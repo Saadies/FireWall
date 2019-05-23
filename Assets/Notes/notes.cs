@@ -1,4 +1,10 @@
 ﻿/*
+    NewIdea:
+    Enemies that don't "attack" and give extra points or health
+
+    rats:
+    standing rats jump once over fire then walk
+
     Ideas:
 
 
@@ -11,8 +17,7 @@
     call it firewall XP and make the endboss an XP smiley.
     maybe later you can develope more AI enbosses build on emojis (dlc)
 
-    rats:
-    standing rats jump once over fire then walk
+    
 
 
     3D Animated eyes as evolving character (sleeping till boss 1)
@@ -82,6 +87,7 @@
     https://poly.google.com/view/dCmNk08B6gs
     https://poly.google.com/view/5XoZ_5sp13S
     https://poly.google.com/view/8wLPCTT9zlO
+    https://poly.google.com/view/eMNhHDZakYp
 	
 	
 	

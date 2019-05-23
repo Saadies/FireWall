@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8073874181965889496}
   - component: {fileID: 5386248962379942472}
   - component: {fileID: 1953667873487159889}
+  - component: {fileID: 7469958736571252090}
   m_Layer: 0
   m_Name: pArrow
   m_TagString: bullet
@@ -91,6 +92,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2832620707354d148aea97f2b98fdb32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &7469958736571252090
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4832908813009913273}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &2589726573556054680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,6 +124,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423299638497595560, guid: adb8d39541f708849a999e865f107b28,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2709982398430421691, guid: adb8d39541f708849a999e865f107b28,
         type: 3}
@@ -157,6 +184,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519569964989042422, guid: adb8d39541f708849a999e865f107b28,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adb8d39541f708849a999e865f107b28, type: 3}

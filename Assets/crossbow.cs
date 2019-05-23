@@ -8,8 +8,9 @@ public class crossbow : MonoBehaviour
     Collider2D thisCollider;
     Vector2 mousePos = new Vector2(0, 0);
     public GameObject arrow;
-    public float cooldown = 0.2f;
+    public float cooldown = 1.0f;
     float time;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,9 @@ public class crossbow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.time;
+        mousePos = new Vector2(999, 999);
+
+        time += Time.deltaTime;
 
         if (Input.touchCount > 0)
         {
@@ -50,14 +53,22 @@ public class crossbow : MonoBehaviour
             if (thisCollider.OverlapPoint(mousePos))
             {
                 Instantiate(arrow, gameObject.transform);
+                StartCoroutine(disable(cooldown));
             }
 
-            time = 0f;
+            
         }
 
         validPos = false;
 
         
+    }
+
+    IEnumerator disable(float time)
+    {
+        thisCollider.enabled = false ;
+        yield return new WaitForSeconds(time);
+        thisCollider.enabled = true;
     }
 
 }
