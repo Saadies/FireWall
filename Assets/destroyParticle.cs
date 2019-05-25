@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class arrow : MonoBehaviour
+public class destroyParticle : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 0.3f);
+        var psys = this.GetComponent<ParticleSystem>();
+
+        //Destroy(this.gameObject, psys.main.duration);
+        Destroy(this.gameObject, 1f);
     }
 
     // Update is called once per frame

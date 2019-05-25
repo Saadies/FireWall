@@ -6,6 +6,7 @@ public class gullCollision : MonoBehaviour
 {
 
     private CameraShake cameraShake;
+    public GameObject corpse;
 
 
     private GameObject target;
@@ -32,10 +33,12 @@ public class gullCollision : MonoBehaviour
 
     void OnDestroy()
     {
-
+        
         cameraShake.Shake();
 
         Object.Destroy(transform.parent.gameObject);
+
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -46,12 +49,15 @@ public class gullCollision : MonoBehaviour
         //Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
         if (col.gameObject.tag == "bullet")
         {
+            Instantiate(corpse, gameObject.transform.position,gameObject.transform.rotation);
+            Destroy(col.gameObject);
             if (health == 1)
             {
                 Destroy(this);
             }
-            health--;
             Destroy(col.gameObject);
+            health--;
+            
         }
         
     }

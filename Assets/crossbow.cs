@@ -52,7 +52,7 @@ public class crossbow : MonoBehaviour
         {
             if (thisCollider.OverlapPoint(mousePos))
             {
-                Instantiate(arrow, gameObject.transform);
+                Instantiate(arrow, gameObject.transform.position,new Quaternion());
                 StartCoroutine(disable(cooldown));
             }
 

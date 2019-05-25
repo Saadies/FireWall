@@ -221,24 +221,26 @@ IEnumerator level1()
                 yield return new WaitForSeconds(normalSpawn);
                 spawner(4, speed: normalSpeed, x: 5);
 
+                yield return new WaitForSeconds(5f);
+
                 break;
 
             case 99:
-                normalSpawn = 1.0f;
-                normalSpeed = 0.75f;
-                yield return new WaitForSeconds(5f);
+                
                 break;
             default:
-
+                normalSpawn = 0.5f;
+                normalSpeed = 0.50f;
+                
                 yield return new WaitForSeconds(normalSpawn);
                 spawner(1,speed:normalSpeed);
                 //spawner(666, speed: 0.25f);
-                if (normalSpawn > 0.65f)
+                if (normalSpawn > 0.35f)
                 {
                     normalSpawn -= 0.05f;
                     
                 }
-                if(normalSpeed < 0.9f)
+                if(normalSpeed < 0.6f)
                 {
                     normalSpeed += 0.01f;
                 }

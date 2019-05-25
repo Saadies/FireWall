@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!50 &194568905158287131
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472308177585170992}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &3973282865189280000
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472308177585170992}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.1871996, y: -11.543732}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.36479, y: 60.77899}
+  m_EdgeRadius: 0
 --- !u!1 &4832908813009913273
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,9 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4832908813009913274}
   - component: {fileID: 8073874181965889496}
-  - component: {fileID: 5386248962379942472}
   - component: {fileID: 1953667873487159889}
-  - component: {fileID: 7469958736571252090}
   m_Layer: 0
   m_Name: pArrow
   m_TagString: bullet
@@ -28,7 +73,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4832908813009913273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -200}
+  m_LocalPosition: {x: 0, y: -331.63, z: -200.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 462538407402477603}
@@ -54,32 +99,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &5386248962379942472
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4832908813009913273}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.029130936, y: -11.262192}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 14.422739, y: 65.66513}
-  m_EdgeRadius: 0
 --- !u!114 &1953667873487159889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,27 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2832620707354d148aea97f2b98fdb32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &7469958736571252090
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4832908813009913273}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1001 &2589726573556054680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129,6 +127,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423299638497595560, guid: adb8d39541f708849a999e865f107b28,
+        type: 3}
+      propertyPath: m_TagString
+      value: bullet
       objectReference: {fileID: 0}
     - target: {fileID: 2709982398430421691, guid: adb8d39541f708849a999e865f107b28,
         type: 3}
@@ -148,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 2709982398430421691, guid: adb8d39541f708849a999e865f107b28,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2709982398430421691, guid: adb8d39541f708849a999e865f107b28,
         type: 3}
@@ -163,7 +166,7 @@ PrefabInstance:
     - target: {fileID: 2709982398430421691, guid: adb8d39541f708849a999e865f107b28,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2709982398430421691, guid: adb8d39541f708849a999e865f107b28,
         type: 3}
@@ -173,7 +176,7 @@ PrefabInstance:
     - target: {fileID: 2709982398430421691, guid: adb8d39541f708849a999e865f107b28,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2709982398430421691, guid: adb8d39541f708849a999e865f107b28,
         type: 3}
@@ -185,6 +188,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2709982398430421691, guid: adb8d39541f708849a999e865f107b28,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709982398430421691, guid: adb8d39541f708849a999e865f107b28,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709982398430421691, guid: adb8d39541f708849a999e865f107b28,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 981895751161797483, guid: adb8d39541f708849a999e865f107b28,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 981895751161797483, guid: adb8d39541f708849a999e865f107b28,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 981895751161797483, guid: adb8d39541f708849a999e865f107b28,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 981895751161797483, guid: adb8d39541f708849a999e865f107b28,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 981895751161797483, guid: adb8d39541f708849a999e865f107b28,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 981895751161797483, guid: adb8d39541f708849a999e865f107b28,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 981895751161797483, guid: adb8d39541f708849a999e865f107b28,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 981895751161797483, guid: adb8d39541f708849a999e865f107b28,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4519569964989042422, guid: adb8d39541f708849a999e865f107b28,
         type: 3}
       propertyPath: m_Layer
@@ -192,6 +250,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adb8d39541f708849a999e865f107b28, type: 3}
+--- !u!1 &3472308177585170992 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1423299638497595560, guid: adb8d39541f708849a999e865f107b28,
+    type: 3}
+  m_PrefabInstance: {fileID: 2589726573556054680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &462538407402477603 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2709982398430421691, guid: adb8d39541f708849a999e865f107b28,

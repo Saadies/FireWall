@@ -515,12 +515,17 @@ PrefabInstance:
     - target: {fileID: 6657230352702476532, guid: a63fa02f99cb23c4491f70347290de94,
         type: 3}
       propertyPath: shakeIntensityMin
-      value: 0.002
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6657230352702476532, guid: a63fa02f99cb23c4491f70347290de94,
         type: 3}
       propertyPath: shakeIntensityMax
-      value: 0.002
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6657230352702476532, guid: a63fa02f99cb23c4491f70347290de94,
+        type: 3}
+      propertyPath: shakePosition
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8917055092723678162, guid: a63fa02f99cb23c4491f70347290de94,
         type: 3}
