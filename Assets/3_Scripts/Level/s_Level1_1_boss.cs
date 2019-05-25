@@ -469,9 +469,9 @@ void spawner(int spawnType, int maxType = 5, int startType = 1, float speed = 1,
         startX = randomX;
     }
 
-    Vector3 startPos = new Vector3(startX, startY, 0);
-    Vector3 startPos2_1 = new Vector3(startX - 15f, startY, 0);
-    Vector3 startPos2_2 = new Vector3(startX + 15f, startY, 0);
+    Vector3 startPos = new Vector3(startX, startY, -20);
+    Vector3 startPos2_1 = new Vector3(startX - 15f, startY, -20);
+    Vector3 startPos2_2 = new Vector3(startX + 15f, startY, -20);
     Vector3 bossPos = new Vector3(-350, 280, -50);
 
 

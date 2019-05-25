@@ -93,40 +93,14 @@ IEnumerator level1()
                 //tutorial
                 break;
             case 1:
+
+
                 normalSpawn = 1.5f;
-                normalSpeed = 0.6f;
+                normalSpeed = 0.5f;
 
-                //TEST
-                /*
-                spawner(3, speed: normalSpeed, x: 4);
-                yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 5);
-                yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 4);
-                yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 5);
-                yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 4);
-                yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 5);
-                yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 4);
-                yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 5);
-                yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 4);
-                yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 5);
-                yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 4);
-                yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 5);
-                yield return new WaitForSeconds(normalSpawn);
-                */
-                //TEST
+                yield return new WaitForSeconds(3f);
 
-
-                spawner(1, speed: normalSpeed,x:2);
+                spawner(1, speed: normalSpeed, x:2);
                 yield return new WaitForSeconds(normalSpawn);
                 spawner(1, speed: normalSpeed, x: 1);
                 yield return new WaitForSeconds(normalSpawn);
@@ -137,22 +111,27 @@ IEnumerator level1()
 
                 yield return new WaitForSeconds(3f);
                 normalSpawn = 1f;
-                normalSpeed = 0.8f;
+                normalSpeed = 0.75f;
 
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(1, speed: normalSpeed, x: 2);
-                yield return new WaitForSeconds(normalSpawn);
-                spawner(1, speed: normalSpeed, x: 2);
-
-                normalSpawn = 0.8f;
-                yield return new WaitForSeconds(normalSpawn);
-                spawner(1, speed: normalSpeed, x: 3);
+                spawner(1, speed: normalSpeed, x: 1);
                 yield return new WaitForSeconds(normalSpawn);
                 spawner(1, speed: normalSpeed, x: 3);
 
-                yield return new WaitForSeconds(2f);
                 normalSpawn = 0.75f;
-                normalSpeed = 1f;
+                normalSpeed = 0.7f;
+
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 1);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 2);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 3);
+
+                yield return new WaitForSeconds(2f);
+
+                normalSpawn = 0.4f;
+                normalSpeed = 0.6f;
 
                 yield return new WaitForSeconds(normalSpawn);
                 spawner(1, speed: normalSpeed, x: 3);
@@ -162,22 +141,92 @@ IEnumerator level1()
                 spawner(1, speed: normalSpeed, x: 1);
 
                 yield return new WaitForSeconds(2f);
-                normalSpawn = 0.65f;
-                normalSpeed = 1f;
+                normalSpawn = 0.3f;
+                normalSpeed = 0.5f;
+
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(1, speed: normalSpeed, x: 3);
+                spawner(1, speed: normalSpeed, x: 1);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 2);
                 yield return new WaitForSeconds(normalSpawn);
                 spawner(1, speed: normalSpeed, x: 1);
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(1, speed: normalSpeed, x: 3);
+                spawner(1, speed: normalSpeed, x: 2);
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(1, speed: normalSpeed, x: 1);
+                spawner(1, speed: normalSpeed, x: 3);
 
                 yield return new WaitForSeconds(5f);
                 break;
+            case 2:
+                normalSpawn = 1.5f;
+                normalSpeed = 0.75f;
+
+                spawner(3, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 5);
+
+                yield return new WaitForSeconds(2f);
+
+                normalSpawn = 1.25f;
+                normalSpeed = 0.85f;
+
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(4, speed: normalSpeed, x: 5);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(4, speed: normalSpeed, x: 5);
+
+                yield return new WaitForSeconds(2f);
+
+                normalSpawn = 1.0f;
+                normalSpeed = 1f;
+
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(4, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(4, speed: normalSpeed, x: 5);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 5);
+
+                yield return new WaitForSeconds(2f);
+
+                normalSpawn = 0.75f;
+                normalSpeed = 1.15f;
+
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(4, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(4, speed: normalSpeed, x: 4);
+
+                yield return new WaitForSeconds(2f);
+
+                normalSpawn = 0.55f;
+                normalSpeed = 1.25f;
+
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 5);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(4, speed: normalSpeed, x: 5);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 5);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(4, speed: normalSpeed, x: 5);
+
+                break;
 
             case 99:
-                normalSpawn = 1f;
+                normalSpawn = 1.0f;
+                normalSpeed = 0.75f;
+                yield return new WaitForSeconds(5f);
                 break;
             default:
 
@@ -189,7 +238,7 @@ IEnumerator level1()
                     normalSpawn -= 0.05f;
                     
                 }
-                if(normalSpeed < 2.0f)
+                if(normalSpeed < 0.9f)
                 {
                     normalSpeed += 0.01f;
                 }

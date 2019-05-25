@@ -42,5 +42,10 @@ public class virusParent : MonoBehaviour
         m_Animator.speed = newSpeed;
     }
 
+    public void enableFlutter()
+    {
+        m_Animator.SetBool("Flutter", true);
+    }
+
 }
 

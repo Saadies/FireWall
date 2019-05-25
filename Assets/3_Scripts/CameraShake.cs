@@ -20,9 +20,13 @@ public class CameraShake : MonoBehaviour
     // call this function to start shaking
     public void Shake()
     {
-        OriginalPos = transform.position;
-        OriginalRot = transform.rotation;
-        StartCoroutine("ProcessShake");
+        if (gameObject != null && !isShakeRunning)
+        {
+            OriginalPos = transform.position;
+            OriginalRot = transform.rotation;
+            StartCoroutine("ProcessShake");
+        }
+        
     }
 
     IEnumerator ProcessShake()

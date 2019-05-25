@@ -546,6 +546,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1138602878981235502}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &8390943970729400572 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8917055092723678162, guid: a63fa02f99cb23c4491f70347290de94,
+    type: 3}
+  m_PrefabInstance: {fileID: 1138602878981235502}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1138602879228834239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -872,7 +878,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8390943970729400572}
     - target: {fileID: 787989461198191993, guid: b3042e2eb9dcd894f9737723c74256c7,
         type: 3}
       propertyPath: m_PlaneDistance

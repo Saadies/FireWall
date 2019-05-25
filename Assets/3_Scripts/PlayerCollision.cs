@@ -13,6 +13,7 @@ public class PlayerCollision : MonoBehaviour
     GameObject health1;
     [SerializeField]
     GameObject health2;
+    public bool godmode = false;
 
 
     private int health = 3;
@@ -72,7 +73,10 @@ public class PlayerCollision : MonoBehaviour
             health--;
         }
 
-
+        if (godmode)
+        {
+            health = 10;
+        }
 
     }
 }

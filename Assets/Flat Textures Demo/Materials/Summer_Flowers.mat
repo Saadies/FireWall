@@ -93,9 +93,9 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 0}
+    - _BaseColor: {r: 0.7727013, g: 0.7735849, b: 0.07662869, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.009571156, g: 0.5283019, b: 0, a: 1}
+    - _EmissionColor: {r: 0.0032145435, g: 0.21698111, b: 0, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
 --- !u!114 &5854533389057749076
 MonoBehaviour:
