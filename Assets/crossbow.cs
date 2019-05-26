@@ -27,11 +27,17 @@ public class crossbow : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
+
             Touch touch = Input.GetTouch(0);
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    mousePos = Camera.main.ScreenToWorldPoint(touch.position);
 
-            mousePos = Camera.main.ScreenToWorldPoint(touch.position);
-
-            validPos = true;
+                    validPos = true;
+                break;
+            }
+           
 
         }
 

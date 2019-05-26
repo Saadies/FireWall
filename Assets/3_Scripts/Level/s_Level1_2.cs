@@ -223,19 +223,21 @@ IEnumerator level1()
 
                 yield return new WaitForSeconds(5f);
 
+                normalSpawn = 0.8f;
+                normalSpeed = 0.50f;
+
                 break;
 
             case 99:
                 
                 break;
             default:
-                normalSpawn = 0.5f;
-                normalSpeed = 0.50f;
+                
                 
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(1,speed:normalSpeed);
+                customSpawner(normalSpeed);
                 //spawner(666, speed: 0.25f);
-                if (normalSpawn > 0.35f)
+                if (normalSpawn > 0.55f)
                 {
                     normalSpawn -= 0.05f;
                     
@@ -293,21 +295,29 @@ IEnumerator ap_v2_repeater(float speed, int repeats, float waitBehind, float sta
 #region SPAWNER
 
 
-void customSpawner(List<int> types)
+void customSpawner(float speed = 1)
 {
-    int maxRand = types.Count;
-    int newRand = UnityEngine.Random.Range(1, maxRand);
+    int maxRand = Enemies.Length;
+    int newRand = UnityEngine.Random.Range(1, maxRand+1);
 
-    spawner(types[newRand]);
+    spawner(newRand, speed: speed);
 }
 
 //spawntype 666 is random type
 //x = 9999 is random position
-void spawner(int spawnType, int maxType = 5, int startType = 1, float speed = 1, float x = 9999, string spawnText = "")
+void spawner(int spawnType, int maxType = 3, int startType = 1, float speed = 1, float x = 9999, string spawnText = "")
 {
-
+        float randomX;
         //float randomX = UnityEngine.Random.Range(-spawnBorder, spawnBorder);
-        float randomX = UnityEngine.Random.Range(1, 4);
+        if (spawnType == 1)
+        {
+            randomX = UnityEngine.Random.Range(1, 4);
+        }
+        else
+        {
+            randomX = UnityEngine.Random.Range(4, 6);
+        }
+            
 
     if (x != 9999)
     {
@@ -386,18 +396,11 @@ void spawner(int spawnType, int maxType = 5, int startType = 1, float speed = 1,
             setSpeed(speed, spawnedEnemy);
             break;
         case 2:
-            //normal Virus side by side
-            spawnedEnemy = Instantiate(Enemies[0], startPos2_1, new Quaternion());
-            setSpeed(speed, spawnedEnemy);
-            spawnedEnemy = Instantiate(Enemies[0], startPos2_2, new Quaternion());
-            setSpeed(speed, spawnedEnemy);
-            break;
-        case 3:
             //swaying Virus
             spawnedEnemy = Instantiate(Enemies[1], startPos, new Quaternion());
             setSpeed(speed, spawnedEnemy);
             break;
-        case 4:
+        case 3:
             //swaying other direction Virus
             spawnedEnemy = Instantiate(Enemies[2], startPos, new Quaternion());
             setSpeed(speed, spawnedEnemy);
@@ -406,13 +409,6 @@ void spawner(int spawnType, int maxType = 5, int startType = 1, float speed = 1,
             //mySprite.GetComponent<virusParent>().spawnText("You can Shoot me btw");
 
             break;
-        case 5:
-            //2 bikes splitting up
-            spawnedEnemy = Instantiate(Enemies[3], startPos, new Quaternion());
-            setSpeed(speed, spawnedEnemy);
-
-            break;
-        case 6:
 
         case 666:
             spawner(newSpawn, maxType, startType, speed);

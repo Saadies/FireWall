@@ -4766,7 +4766,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 29a3ba4b46b42334f8946c6cdeb78dfa, type: 2}
+  - {fileID: 2100000, guid: 4b10a80e8951c8e46bca3541c38175f3, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4823,7 +4823,7 @@ GameObject:
   - component: {fileID: 8540324171826907636}
   - component: {fileID: 5699343553100661073}
   m_Layer: 0
-  m_Name: BirdCorpse
+  m_Name: BirdCorpseRd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9578,7 +9578,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 510dc5c804fad1042ae6f03edcf7c5d6, type: 2}
+  - {fileID: 2100000, guid: 505590b724c29404f9369dc8be35362d, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

@@ -29,7 +29,7 @@ public class MenuManager : MonoBehaviour
 
     public void Start()
     {
-        
+        PlayerPrefs.SetInt("spawnCount", 0);
     }
 
     public void setWin()

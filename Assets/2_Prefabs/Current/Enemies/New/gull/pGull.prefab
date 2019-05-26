@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8919147b3bb264fac3468a0b3807a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  corpse: {fileID: 6997844160907741385, guid: e25e968f4c2b40345b29a94ba5f429ba, type: 3}
+  corpse: {fileID: 6997844160907741385, guid: b866a11dd8d3bde44bc81e0e33f34951, type: 3}
   health: 1
 --- !u!50 &2624278489749178321
 Rigidbody2D:
@@ -143,7 +143,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 510dc5c804fad1042ae6f03edcf7c5d6, type: 2}
+  - {fileID: 2100000, guid: 505590b724c29404f9369dc8be35362d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
