@@ -512,21 +512,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6657230352702476532, guid: a63fa02f99cb23c4491f70347290de94,
-        type: 3}
-      propertyPath: shakeIntensityMin
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 6657230352702476532, guid: a63fa02f99cb23c4491f70347290de94,
-        type: 3}
-      propertyPath: shakeIntensityMax
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 6657230352702476532, guid: a63fa02f99cb23c4491f70347290de94,
-        type: 3}
-      propertyPath: shakePosition
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8917055092723678162, guid: a63fa02f99cb23c4491f70347290de94,
         type: 3}
       propertyPath: m_AllowDynamicResolution
@@ -550,6 +535,26 @@ PrefabInstance:
     - target: {fileID: 8917055092723678162, guid: a63fa02f99cb23c4491f70347290de94,
         type: 3}
       propertyPath: m_Depth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8917055092723678162, guid: a63fa02f99cb23c4491f70347290de94,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6657230352702476532, guid: a63fa02f99cb23c4491f70347290de94,
+        type: 3}
+      propertyPath: shakeIntensityMin
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6657230352702476532, guid: a63fa02f99cb23c4491f70347290de94,
+        type: 3}
+      propertyPath: shakeIntensityMax
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6657230352702476532, guid: a63fa02f99cb23c4491f70347290de94,
+        type: 3}
+      propertyPath: shakePosition
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8504252657005466042, guid: a63fa02f99cb23c4491f70347290de94,
@@ -2251,7 +2256,7 @@ PrefabInstance:
     - target: {fileID: 7830984318824237359, guid: d18002ad27a07bc4d901d111e735c643,
         type: 3}
       propertyPath: cooldown
-      value: 0.35
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5058362356466249311, guid: d18002ad27a07bc4d901d111e735c643,
         type: 3}

@@ -161,9 +161,9 @@ IEnumerator level1()
                 normalSpawn = 1.5f;
                 normalSpeed = 0.75f;
 
-                spawner(3, speed: normalSpeed, x: 4);
+                spawner(2, speed: normalSpeed, x: 4);
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 5);
+                spawner(2, speed: normalSpeed, x: 5);
 
                 yield return new WaitForSeconds(2f);
 
@@ -171,13 +171,13 @@ IEnumerator level1()
                 normalSpeed = 0.85f;
 
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 4);
+                spawner(2, speed: normalSpeed, x: 4);
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(4, speed: normalSpeed, x: 5);
+                spawner(3, speed: normalSpeed, x: 5);
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 4);
+                spawner(2, speed: normalSpeed, x: 4);
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(4, speed: normalSpeed, x: 5);
+                spawner(3, speed: normalSpeed, x: 5);
 
                 yield return new WaitForSeconds(2f);
 
@@ -185,13 +185,13 @@ IEnumerator level1()
                 normalSpeed = 1f;
 
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(4, speed: normalSpeed, x: 4);
-                yield return new WaitForSeconds(normalSpawn);
                 spawner(3, speed: normalSpeed, x: 4);
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(4, speed: normalSpeed, x: 5);
+                spawner(2, speed: normalSpeed, x: 4);
                 yield return new WaitForSeconds(normalSpawn);
                 spawner(3, speed: normalSpeed, x: 5);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(2, speed: normalSpeed, x: 5);
 
                 yield return new WaitForSeconds(2f);
 
@@ -199,13 +199,13 @@ IEnumerator level1()
                 normalSpeed = 1.15f;
 
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 4);
-                yield return new WaitForSeconds(normalSpawn);
-                spawner(4, speed: normalSpeed, x: 4);
+                spawner(2, speed: normalSpeed, x: 4);
                 yield return new WaitForSeconds(normalSpawn);
                 spawner(3, speed: normalSpeed, x: 4);
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(4, speed: normalSpeed, x: 4);
+                spawner(2, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 4);
 
                 yield return new WaitForSeconds(2f);
 
@@ -213,21 +213,58 @@ IEnumerator level1()
                 normalSpeed = 1.25f;
 
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(3, speed: normalSpeed, x: 5);
-                yield return new WaitForSeconds(normalSpawn);
-                spawner(4, speed: normalSpeed, x: 5);
+                spawner(2, speed: normalSpeed, x: 5);
                 yield return new WaitForSeconds(normalSpawn);
                 spawner(3, speed: normalSpeed, x: 5);
                 yield return new WaitForSeconds(normalSpawn);
-                spawner(4, speed: normalSpeed, x: 5);
+                spawner(2, speed: normalSpeed, x: 5);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 5);
 
-                yield return new WaitForSeconds(5f);
+                yield return new WaitForSeconds(2f);
 
-                normalSpawn = 0.8f;
-                normalSpeed = 0.50f;
+                
 
                 break;
 
+            case 3:
+                normalSpawn = 0.8f;
+                normalSpeed = 1.0f;
+
+                yield return new WaitForSeconds(normalSpawn);
+
+                spawner(2, speed: normalSpeed, x: 5);
+                spawner(3, speed: normalSpeed, x: 4);
+
+                yield return new WaitForSeconds(0.25f);
+
+                spawner(1, speed: normalSpeed, x: 2);
+
+                yield return new WaitForSeconds(2f);
+
+                normalSpawn = 0.4f;
+                normalSpeed = 0.8f;
+
+                spawner(1, speed: normalSpeed, x: 1);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(3, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 2);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(2, speed: normalSpeed, x: 4);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, x: 3);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(2, speed: normalSpeed, x: 5);
+
+
+                yield return new WaitForSeconds(10f);
+
+                break;
+            case 4:
+                normalSpawn = 0.8f;
+                normalSpeed = 0.50f;
+                break;
             case 99:
                 
                 break;
@@ -298,8 +335,15 @@ IEnumerator ap_v2_repeater(float speed, int repeats, float waitBehind, float sta
 void customSpawner(float speed = 1)
 {
     int maxRand = Enemies.Length;
-    int newRand = UnityEngine.Random.Range(1, maxRand+1);
-
+    int newRand = UnityEngine.Random.Range(1, maxRand+2);
+        if (newRand == maxRand + 1)
+        {
+            newRand = 1;
+        }
+    if (newRand > 1)
+        {
+            speed += 0.2f;
+        }
     spawner(newRand, speed: speed);
 }
 

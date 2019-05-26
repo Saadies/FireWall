@@ -89,7 +89,7 @@
     https://poly.google.com/view/8wLPCTT9zlO
     https://poly.google.com/view/eMNhHDZakYp
     https://sketchfab.com/3d-models/day-1-feather-771e62e4f43d4c3c81f7d35a8884578c
-	
+	https://poly.google.com/view/6h7-AWppj5e
 	
 	
 	-----------------------
@@ -99,6 +99,7 @@
 	- lane based turn based (pokemon-light)"rpg" ... with wizards and elements pls
 	- mobile katamari damacy but for mobile you are a black hole, 3d but with sprites?, maybe isometric with up/down button. maybe you can drag and push (4 "buttons") . make fun movement withour shitty digital pads
 	- mobile pinball, the ball is enlarged at the bottom and you can choose direction depending on where you tap. a highlighted area bar at the bottom of the level indicates when your taps work, sooner = harder
+	- mobile fighting game, left side 3 buttons vertical for blocking (up/middle/down)/maybe jump/duck/block? and right side 3 buttons for attack (up/middle/down) no moving.
 
     vr:
     controlling a mech that has a lot of buttons and levers and you have to do simple task (construction, rescue mission, intro level could be a show where you have to do what the presenter says)

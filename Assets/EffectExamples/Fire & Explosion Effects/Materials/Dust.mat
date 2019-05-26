@@ -24,7 +24,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: b7839dad95683814aa64166edc107ae2, type: 3}
   m_ShaderKeywords: _EMISSION _FADING_ON _FLIPBOOKBLENDING_ON _RECEIVE_SHADOWS_OFF
     _SOFTPARTICLES_ON
-  m_LightmapFlags: 0
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3050
@@ -120,5 +120,5 @@ Material:
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.3679245, g: 0.311658, b: 0.23429155, a: 1}
+    - _EmissionColor: {r: 1.6792452, g: 0.6961543, b: 0.6099145, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 1, b: 0, a: 0}
