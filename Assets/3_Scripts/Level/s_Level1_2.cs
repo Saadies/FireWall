@@ -8,7 +8,9 @@ public class s_Level1_2 : MonoBehaviour
 { 
 
     public GameObject[] Enemies;
-    
+
+    public GameObject Crossbows;
+    Animator CrossbowsAnimator;
     
     [SerializeField]
     private float t;
@@ -53,6 +55,8 @@ void Start()
 
     float width = screenHeight * cam.aspect;
     spawnBorder = spawnBorder * (width / 2);
+
+    CrossbowsAnimator = Crossbows.GetComponent<Animator>();
 
     spawnCount = PlayerPrefs.GetInt("spawnCount", spawnCount);
     PlayerPrefs.SetInt("endgame", 0);
@@ -238,7 +242,7 @@ IEnumerator level1()
 
                 yield return new WaitForSeconds(0.25f);
 
-                spawner(1, speed: normalSpeed, x: 2);
+                spawner(1, speed: 0.7f, x: 2);
 
                 yield return new WaitForSeconds(2f);
 
@@ -258,15 +262,87 @@ IEnumerator level1()
                 spawner(2, speed: normalSpeed, x: 5);
 
 
-                yield return new WaitForSeconds(10f);
+                yield return new WaitForSeconds(2f);
 
                 break;
             case 4:
+                yield return new WaitForSeconds(2f);
+                //Switch from 3 lane enemies to 4 lanes, only use x: 6,7,8,9 (1->4) 10,11,12 (inbetween)
+                CrossbowsAnimator.SetTrigger("addCrossbow");
+                yield return new WaitForSeconds(4f);
+                break;
+
+            case 5:
+
+                normalSpawn = 0.8f;
+                normalSpeed = 0.60f;
+
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1,speed:normalSpeed,fourLanes:true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+
+                normalSpawn = 0.8f;
+                normalSpeed = 0.70f;
+
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+
+                normalSpawn = 0.8f;
+                normalSpeed = 0.80f;
+
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+
+                normalSpawn = 0.4f;
+                normalSpeed = 0.50f;
+
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+                yield return new WaitForSeconds(normalSpawn);
+                spawner(1, speed: normalSpeed, fourLanes: true);
+
+                break;
+            case 6:
+                yield return new WaitForSeconds(3f);
+
+                //Switch lanes back to 3?
+                CrossbowsAnimator.SetTrigger("removeCrossbow");
+
+                yield return new WaitForSeconds(3f);
+
+                break;
+            case 7://last
                 normalSpawn = 0.8f;
                 normalSpeed = 0.50f;
-                break;
-            case 99:
-                
                 break;
             default:
                 
@@ -332,7 +408,7 @@ IEnumerator ap_v2_repeater(float speed, int repeats, float waitBehind, float sta
 #region SPAWNER
 
 
-void customSpawner(float speed = 1)
+void customSpawner(float speed = 1, bool fourLanes = false)
 {
     int maxRand = Enemies.Length;
     int newRand = UnityEngine.Random.Range(1, maxRand+2);
@@ -344,12 +420,19 @@ void customSpawner(float speed = 1)
         {
             speed += 0.2f;
         }
-    spawner(newRand, speed: speed);
+
+
+    if (fourLanes)
+        {
+
+        }
+
+    spawner(newRand, speed: speed, fourLanes: fourLanes);
 }
 
 //spawntype 666 is random type
 //x = 9999 is random position
-void spawner(int spawnType, int maxType = 3, int startType = 1, float speed = 1, float x = 9999, string spawnText = "")
+void spawner(int spawnType, int maxType = 3, int startType = 1, float speed = 1, float x = 9999, string spawnText = "", bool fourLanes = false)
 {
         float randomX;
         //float randomX = UnityEngine.Random.Range(-spawnBorder, spawnBorder);
@@ -358,8 +441,12 @@ void spawner(int spawnType, int maxType = 3, int startType = 1, float speed = 1,
             randomX = UnityEngine.Random.Range(1, 4);
         }
         else
-        {
+        {//inbetween for alternative bird pattern(right/left)
             randomX = UnityEngine.Random.Range(4, 6);
+        }
+        if (fourLanes)
+        {
+            randomX = UnityEngine.Random.Range(6, 10);
         }
             
 
@@ -382,6 +469,28 @@ void spawner(int spawnType, int maxType = 3, int startType = 1, float speed = 1,
                     break;
                 case 5:
                     startX = 70;
+                    break;
+                    //4 lanes pos starting here
+                case 6:
+                    startX = -170;
+                    break;
+                case 7:
+                    startX = -55;
+                    break;
+                case 8:
+                    startX = 55;
+                    break;
+                case 9:
+                    startX = 170;
+                    break;
+                case 10:
+                    startX = -110;
+                    break;
+                case 11:
+                    startX = 0;
+                    break;
+                case 12:
+                    startX = 110;
                     break;
                 default:
                     startX = 0;
@@ -407,6 +516,28 @@ void spawner(int spawnType, int maxType = 3, int startType = 1, float speed = 1,
                     break;
                 case 5:
                     startX = 70;
+                    break;
+                //4 lanes pos starting here
+                case 6:
+                    startX = -170;
+                    break;
+                case 7:
+                    startX = -55;
+                    break;
+                case 8:
+                    startX = 55;
+                    break;
+                case 9:
+                    startX = 170;
+                    break;
+                case 10:
+                    startX = -110;
+                    break;
+                case 11:
+                    startX = 0;
+                    break;
+                case 12:
+                    startX = 110;
                     break;
                 default:
                     startX = 0;
