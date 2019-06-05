@@ -8,15 +8,23 @@ public class sSlinger : MonoBehaviour
     public GameObject LineL;
     public GameObject LineR;
     public GameObject Slinger;
+    public GameObject NewBall;
+    public GameObject centerPivot;
 
     private LineRenderer LineLRender;
     private LineRenderer LineRRender;
+    private Collider2D thisCollider;
+    private Vector3 worldPos;
+
     //https://www.youtube.com/watch?v=7OJQ6MbHuvQ "Folow Mouse"
     [SerializeField]
     private float actualDistance;
 
     [SerializeField]
     private Vector2 mousePosition;
+
+    public float Ballforce;
+    public float forceDistance;
 
     private bool active = false;
 
@@ -25,6 +33,7 @@ public class sSlinger : MonoBehaviour
     {
         LineLRender = LineL.GetComponent<LineRenderer>();
         LineRRender = LineR.GetComponent<LineRenderer>();
+        thisCollider = this.GetComponent<Collider2D>();
 
         Vector3 toObjectVector = Ball.transform.position - Camera.main.transform.position;
         Vector3 linearDistanceVector = Vector3.Project(toObjectVector, Camera.main.transform.forward);
@@ -41,47 +50,90 @@ public class sSlinger : MonoBehaviour
 
             mousePosition = touch.position;
 
-            getWorldPos(mousePosition);
+            Vector3 startPos = Camera.main.ScreenToWorldPoint(mousePosition);
 
-            switch (touch.phase)
+            
+
+            if (thisCollider.OverlapPoint(startPos))
             {
-                case TouchPhase.Began:
+                active = true;
 
-                    break;
-                case TouchPhase.Moved:
-
-                    break;
-                case TouchPhase.Ended:
-
-                    active = false;
-                    break;
-                case TouchPhase.Canceled:
-                    active = false;
-                    break;
+                getWorldPos(mousePosition);
             }
+            if (active)
+            {
+                switch (touch.phase)
+                {
+                    case TouchPhase.Began:
+
+                        break;
+                    case TouchPhase.Moved:
+
+                        break;
+                    case TouchPhase.Ended:
+                        spawnBall();
+                        active = false;
+                        break;
+                    case TouchPhase.Canceled:
+                        spawnBall();
+                        active = false;
+                        break;
+                }
+            }
+            
+
+
         }
 
         if (Input.GetMouseButtonDown(0))
         {
             mousePosition = Input.mousePosition;
 
-            getWorldPos(mousePosition);
+            Vector3 startPos = Camera.main.ScreenToWorldPoint(mousePosition);
+            if (thisCollider.OverlapPoint(mousePosition))
+            {
+                active = true;
+
+                getWorldPos(mousePosition);
+            }
         }
 
         if (Input.GetMouseButton(0))
         {
             mousePosition = Input.mousePosition;
-
-            getWorldPos(mousePosition);
+            if (active)
+            {
+                getWorldPos(mousePosition);
+            }
+            
 
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            active = false;
+            if (active)
+            {
+                spawnBall();
+                active = false;
+            }
+            
         }
 
     }
+
+    void spawnBall()
+    {
+        GameObject iNewBall = Instantiate(NewBall, Ball.transform.position, new Quaternion(), this.transform);
+        Rigidbody2D iNewBallRigidbody = iNewBall.GetComponent<Rigidbody2D>();
+
+        Vector3 direction = centerPivot.transform.position - iNewBall.transform.position;
+        float distance = Vector2.Distance(centerPivot.transform.position, iNewBall.transform.position);
+        distance = distance / forceDistance;
+        Debug.Log(distance);
+
+        iNewBallRigidbody.AddForce(direction*(Ballforce*distance),ForceMode2D.Impulse);
+    }
+
     void resetLineRender()
     {
         //LineL : -8,-20,-16| 0,0,1.1
@@ -96,7 +148,7 @@ public class sSlinger : MonoBehaviour
 
     void getWorldPos(Vector3 mousePosition)
     {
-        Vector3 worldPos;
+        
         mousePosition.z = actualDistance;
 
         
