@@ -3,3 +3,9 @@ A game with two gameplay scenes. One allows you to draw a line with a max length
 
 
 Working (kinda) with Unity 2019.1(.5)
+
+You can try the game at: http://nsproto.saadies.com/
+The (aspect) camera doesn't work right on the web build, it should be 9:16 perspective portrait mode but you can see left and right outside the play area.
+Doesn't change much in Level 2 except that you can see (and use) the fourth crossbow.
+In Level 1 the rats will spawn outside the intended area but you can draw walls there as well.
+Should be enough to see if there might be anything useful for you.
